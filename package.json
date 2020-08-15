@@ -28,10 +28,15 @@
     "jest": "^26.4.0",
     "ts-jest": "^26.2.0",
     "tslint": "^5.12.1",
-    "typescript": "^3.9.7"
+    "typescript": "^3.9.7",
+    "dotenv": "^8.2.0"
   },
   "dependencies": {
-    "typescript-tslint-plugin": "^0.5.5"
+    "typescript-tslint-plugin": "^0.5.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "pg": "^8.3.0",
+    "sequelize": "^6.3.4"
   },
   "config": {
     "commitizen": {

@@ -7,7 +7,7 @@
     "sourceMap": true,
     "outDir": "dist"
   },
-  "include": ["app/**/*", "__test__/app.spec.ts", "test"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "**/test/"],
   "lib": ["es2015"]
 }
