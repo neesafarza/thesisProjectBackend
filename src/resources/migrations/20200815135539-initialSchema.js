@@ -29,7 +29,7 @@ module.exports = {
         },
         telephone: {
           type: Sequelize.INTEGER,
-          required: true
+          required: false
         },
         email: {
           type: 'VARCHAR',
@@ -41,13 +41,13 @@ module.exports = {
           required: true
         },
         birthdate: {
-          type: Sequelize.DATE,
+          type: Sequelize.DATEONLY,
           required: true
         },
         created_at: {
-          type: Sequelize.DATE,
+          type: Sequelize.DATEONLY,
           required: true,
-          default: Date.now()
+          default: Sequelize.NOW
         },
         gender: {
           type: 'VARCHAR',
@@ -132,7 +132,7 @@ module.exports = {
           required: true
         },
         created_at: {
-          type: Sequelize.DATE,
+          type: Sequelize.DATEONLY,
           required: true,
           default: Date.now()
         },
