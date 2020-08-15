@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "start": "tsc && node dist/app.js",
-    "build": "tsc"
+    "build": "tsc",
+    "migrate": "sequelize db:migrate"
   },
   "repository": {
     "type": "git",
@@ -31,11 +32,13 @@
     "dotenv": "^8.2.0"
   },
   "dependencies": {
-    "typescript-tslint-plugin": "^0.5.5",
     "express": "^4.17.1",
     "nodemon": "^2.0.4",
     "pg": "^8.3.0",
-    "sequelize": "^6.3.4"
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.4",
+    "sequelize-cli": "^6.2.0",
+    "typescript-tslint-plugin": "^0.5.5"
   },
   "config": {
     "commitizen": {
