@@ -5,10 +5,9 @@
     "target": "es6",
     "moduleResolution": "node",
     "sourceMap": true,
-    "outDir": "dist",
-    "plugins": [
-      { "name": "typescript-tslint-plugin" }
-    ]
+    "outDir": "dist"
   },
+  "include": ["app/**/*", "__test__/app.spec.ts", "test"],
+  "exclude": ["node_modules", "**/test/"],
   "lib": ["es2015"]
 }
