@@ -4,6 +4,8 @@ const { Router } = require('express');
 const router = new Router();
 const user = require('../controllers/user');
 const product = require('../controllers/product');
+const authMiddleware = require('./middlewares/auth');
+
 
 /*** PUBLIC ROUTES ***/
 router.post('/register', user.create);
@@ -17,10 +19,10 @@ router.get('/products', product.getAll);
 router.get('/user/:id', authMiddleware, user.get);
 router.put('/user/:id', authMiddleware, user.update);
 
-router.get('/products', authMiddleware, product.getAllProducts);
-router.post('/product', authMiddleware, product.createProduct);
-router.get('/product/:id', authMiddleware, product.getProduct);
-router.put('/product/:id', authMiddleware, product.updateProduct);
+router.get('/products', authMiddleware, product.getAll);
+router.post('/product', authMiddleware, product.create);
+router.get('/product/:id', authMiddleware, product.get);
+router.put('/product/:id', authMiddleware, product.update);
 
 
 module.exports = router;
