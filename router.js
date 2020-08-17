@@ -2,8 +2,8 @@
 
 const { Router } = require('express');
 const router = new Router();
-const user = require('../controllers/user');
-const product = require('../controllers/product');
+const user = require('./controllers/user');
+const product = require('./controllers/product');
 const authMiddleware = require('./middlewares/auth');
 
 
@@ -16,12 +16,12 @@ router.get('/products', product.getAll);
 
 
 /*** PRIVATE ROUTES ***/
-router.get('/user/:id', authMiddleware, user.get);
+router.get('/user/:id', authMiddleware, user.getOne);
 router.put('/user/:id', authMiddleware, user.update);
 router.get('/user/products', authMiddleware, product.getAll);
 
 router.post('/product', authMiddleware, product.create);
-router.get('/product/:id', authMiddleware, product.get);
+router.get('/product/:id', authMiddleware, product.getOne);
 router.put('/product/:id', authMiddleware, product.update);
 
 

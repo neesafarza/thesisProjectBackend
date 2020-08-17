@@ -1,6 +1,6 @@
 'use strict';
 
-const User = require('../models/User');
+// const User = require('../models/User');  to add when the model is created
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const SECRET_KEY = process.env.SECRET_KEY;
@@ -43,7 +43,7 @@ exports.login = async (req, res) => {
   }
 }
 
-exports.get = async (req, res) => {
+exports.getOne = async (req, res) => {
   try {
     const { user } = req;   // get the user data from authMiddleware
     res.status(200);

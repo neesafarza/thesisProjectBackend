@@ -3,8 +3,8 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const router = require('./routers/router');
-// const { sequelize } = require('./models/index');
+const router = require('./router');
+const { sequelize } = require('./models/index');
 const PORT = process.env.SERVER_PORT;
 const URL = process.env.SERVER_URL;
 
@@ -14,7 +14,7 @@ app.use(router);
 
 (async () => {
   try {
-    // await sequelize.sync();
+    await sequelize.sync();
     app.listen(PORT, () => {
       console.log(`Server running at ${URL}:${PORT} 🚀`); // eslint-disable-line no-console
     });
