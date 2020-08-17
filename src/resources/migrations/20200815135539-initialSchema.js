@@ -38,7 +38,7 @@ module.exports = {
         },
         address: {
           type: 'VARCHAR',
-          required: true
+          required: false
         },
         birthdate: {
           type: Sequelize.DATEONLY,
@@ -46,12 +46,12 @@ module.exports = {
         },
         created_at: {
           type: Sequelize.DATEONLY,
-          required: true,
+          allowNull: false,
           default: Sequelize.NOW
         },
         gender: {
           type: 'VARCHAR',
-          required: true
+          required: false
         },
       },
       {
