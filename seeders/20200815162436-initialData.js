@@ -3,7 +3,7 @@ const User = require('../models/user');
 const Category = require('../models/category');
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    console.log(User, Category);
+
     await queryInterface.bulkInsert("users", [
       {
         username: "neesa14",
@@ -39,9 +39,16 @@ module.exports = {
     // load user_id, use every users email
     // use query instead
 
-    const user = await User.findOne({ where: { username: 'neesa14'}});
-    const category = await Category.findOne({ where: { name: 'testWomens'}})
+    // const user = await User.findOne({ where: { username: 'neesa14'}});
+    // const category = await Category.findOne({ where: { name: 'testWomens'}})
 
+    const user = await queryInterface.sequelize.query(
+      `SELECT id from users WHERE username = 'neesa14';`
+    )
+
+    const category = await queryInterface.sequelize.query(
+      `SELECT id from categories WHERE name = 'testWomens';`
+    )
 
     await queryInterface.bulkInsert("products", [
       {
