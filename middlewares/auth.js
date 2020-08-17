@@ -1,7 +1,7 @@
 'use strict';
 
 const jwt = require('jsonwebtoken');
-// const User = require('../models/User');  to add when the model is created
+const User = require('../models/User');
 const SECRET_KEY = process.env.SECRET_KEY;
 
 const authMiddleware = async (req, res, next) => {
