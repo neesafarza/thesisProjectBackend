@@ -1,5 +1,3 @@
-const { DataTypes } = require("sequelize/types");
-
 module.exports = (sequelize, DataTypes) => {
   const Products = sequelize.define('Products', {
     id: {
@@ -12,24 +10,24 @@ module.exports = (sequelize, DataTypes) => {
       references: {
         model: 'users',
         key: 'id'
-    },
-    onUpdate: 'cascade',
-    onDelete: 'cascade'
+      },
+      onUpdate: 'cascade',
+      onDelete: 'cascade'
     },
     category_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'categories',
         key: 'id'
-    },
-    onUpdate: 'cascade',
-    onDelete: 'cascade'
+      },
+      onUpdate: 'cascade',
+      onDelete: 'cascade'
     },
     title: {
       type: 'VARCHAR',
       required: true
     },
-    description:{
+    description: {
       type: 'VARCHAR',
       required: true
     },
@@ -59,12 +57,12 @@ module.exports = (sequelize, DataTypes) => {
       type: 'VARCHAR',
       required: false
     }
-    }, {
+  }, {
     sequelize,
     modelName: 'Products',
-    });
-    return Products;
-  }
+  });
+  return Products;
+}
 
 
 
