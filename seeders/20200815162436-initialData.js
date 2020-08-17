@@ -1,6 +1,5 @@
 "use strict";
-const User = require('../models/user');
-const Category = require('../models/category');
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
 
@@ -36,14 +35,8 @@ module.exports = {
       }
     ]);
 
-    // load user_id, use every users email
-    // use query instead
-
-    // const user = await User.findOne({ where: { username: 'neesa14'}});
-    // const category = await Category.findOne({ where: { name: 'testWomens'}})
-
     const user = await queryInterface.sequelize.query(
-      `SELECT id from users WHERE username = 'neesa14';`
+      `SELECT id from users;`
     )
 
     const category = await queryInterface.sequelize.query(
@@ -52,8 +45,8 @@ module.exports = {
 
     await queryInterface.bulkInsert("products", [
       {
-        user_id: user.id,
-        category_id: category.id,
+        user_id: user[0][0].id,
+        category_id: category[0][0].id,
         title: 'Nike Superfly Elite',
         description: `13 years since its last update, the new Nike Superfly Elite Racing Spike delivers a high-tech design for the track. Ultra-breathable Flyweave fabric helps keep you cool, while an innovative spike plate with 8 removable pins provides grip to power through the finish.
         Benefits
