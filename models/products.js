@@ -1,19 +1,7 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+const { DataTypes } = require("sequelize/types");
+
 module.exports = (sequelize, DataTypes) => {
-  class Products extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of DataTypes lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-  };
-  Products.init({
+  const Products = sequelize.define('Products', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -71,9 +59,12 @@ module.exports = (sequelize, DataTypes) => {
       type: 'VARCHAR',
       required: false
     }
-  }, {
+    }, {
     sequelize,
     modelName: 'Products',
-  });
-  return Products;
-};
+    });
+    return Products;
+  }
+
+
+
