@@ -18,8 +18,8 @@ router.get('/products', product.getAll);
 /*** PRIVATE ROUTES ***/
 router.get('/user/:id', authMiddleware, user.get);
 router.put('/user/:id', authMiddleware, user.update);
+router.get('/user/products', authMiddleware, product.getAll);
 
-router.get('/products', authMiddleware, product.getAll);
 router.post('/product', authMiddleware, product.create);
 router.get('/product/:id', authMiddleware, product.get);
 router.put('/product/:id', authMiddleware, product.update);
