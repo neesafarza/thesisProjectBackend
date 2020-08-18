@@ -65,7 +65,9 @@ module.exports = {
         quantity: 1,
         height: 83,
         depth: 52,
-        width: 59
+        width: 59,
+        createdAt: "1996-08-14",
+        updatedAt: "1996-08-14",
       },
       {
         user_id: user[0][0].id,
@@ -78,7 +80,9 @@ module.exports = {
         quantity: 1,
         height: 76,
         depth: 107,
-        width: 220
+        width: 220,
+        createdAt: "1996-08-14",
+        updatedAt: "1996-08-14",
       },
       {
         user_id: user[0][0].id,
@@ -91,7 +95,9 @@ module.exports = {
         quantity: 1,
         height: 45,
         depth: 70,
-        width: 110
+        width: 110,
+        createdAt: "1996-08-14",
+        updatedAt: "1996-08-14",
       },
       {
         user_id: user[0][1].id,
@@ -104,7 +110,9 @@ module.exports = {
         quantity: 1,
         height: 50,
         depth: 17,
-        width: 40
+        width: 40,
+        createdAt: "1996-08-14",
+        updatedAt: "1996-08-14",
       }
     ]);
   },

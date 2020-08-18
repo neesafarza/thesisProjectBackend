@@ -9,33 +9,22 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       unique: true,
       allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
     },
     lastname: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
     },
     telephone: {
       type: DataTypes.INTEGER(2147483647),
+      allowNull: true,
       validate: {
         isInt: true,
       },
@@ -45,22 +34,16 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
       allowNull: false,
       validate: {
-        notEmpty: true,
+        isEmail: true,
       },
     },
     address: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
     },
     birthdate: {
       type: DataTypes.DATEONLY,
       allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
     },
     gender: {
       type: DataTypes.STRING,

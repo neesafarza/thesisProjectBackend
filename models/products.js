@@ -31,11 +31,6 @@ module.exports = (sequelize, DataTypes) => {
       type: 'VARCHAR',
       required: true
     },
-    created_at: {
-      type: DataTypes.DATEONLY,
-      required: true,
-      default: Date.now()
-    },
     images: {
       type: 'VARCHAR',
       required: true
