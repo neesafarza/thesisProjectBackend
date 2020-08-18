@@ -2,6 +2,8 @@
 
 The thesisProject use for the backend Postgres, Sequelize and Express.
 
+
+
 ## Setup
 To start creating the de database and populate it with mock data run the next commands on the terminal:
 
