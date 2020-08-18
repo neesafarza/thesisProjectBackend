@@ -7,6 +7,7 @@
     "test": "jest",
     "start": "tsc && node dist/app.js",
     "build": "tsc",
+    "createDB_and_mockData": "sequelize db:create thesis_db && npm run migrate && npm run seed",
     "migrate": "sequelize db:migrate",
     "seed": "npx sequelize-cli db:seed:all"
   },
