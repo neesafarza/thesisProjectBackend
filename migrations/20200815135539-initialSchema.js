@@ -94,7 +94,7 @@ module.exports = {
           autoIncrement: true
         },
         name: {
-          type: 'VARCHAR',
+          type: Sequelize.STRING,
           unique: true,
           required: true
         }
@@ -110,7 +110,7 @@ module.exports = {
           autoIncrement: true
         },
         name: {
-          type: 'VARCHAR',
+          type: Sequelize.STRING,
           required: true,
           unique: true
         }
@@ -144,11 +144,11 @@ module.exports = {
           onDelete: 'cascade'
         },
         title: {
-          type: 'VARCHAR',
+          type: Sequelize.STRING,
           required: true
         },
         description: {
-          type: 'VARCHAR',
+          type: Sequelize.STRING,
           required: true
         },
         created_at: {
@@ -157,11 +157,11 @@ module.exports = {
           default: Date.now()
         },
         images: {
-          type: 'VARCHAR',
+          type: Sequelize.STRING,
           required: true
         },
         location: {
-          type: 'VARCHAR',
+          type: Sequelize.STRING,
           required: true
         },
         price: {
@@ -174,15 +174,15 @@ module.exports = {
           default: 1
         },
         height: {
-          type: 'VARCHAR',
+          type: Sequelize.STRING,
           required: false
         },
         depth: {
-          type: 'VARCHAR',
+          type: Sequelize.STRING,
           required: false
         },
         width: {
-          type: 'VARCHAR',
+          type: Sequelize.STRING,
           required: false
         }
       },

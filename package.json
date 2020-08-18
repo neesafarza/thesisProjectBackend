@@ -8,6 +8,7 @@
     "start": "tsc && node dist/app.js",
     "build": "tsc",
     "createDB_and_mockData": "sequelize db:create thesis_db && npm run migrate && npm run seed",
+    "removeDB": "sequelize db:drop thesis_db",
     "migrate": "sequelize db:migrate",
     "migrate-down": "sequelize db:migrate:undo",
     "seed": "npx sequelize-cli db:seed:all",
