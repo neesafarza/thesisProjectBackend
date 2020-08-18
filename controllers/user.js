@@ -1,19 +1,23 @@
 'use strict';
 
-// const User = require('../models/User');  to add when the model is created
+const db = require('../models/index');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const SECRET_KEY = process.env.SECRET_KEY;
 
 exports.create = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, password, username, name, lastname, telephone, address, birthdate, gender } = req.body;
     const hash = await bcrypt.hash(password, 10);
     req.body.password = hash;
-    const [created] = await User.findOrCreate({ // TODO: handle case if the email is not used but the username is
+    console.log('req.body: ', req.body);
+    const [user2, created] = await db.user.findOrCreate({ // TODO: handle case if the email is not used but the username is
       where: { email },
-      default: req.body
+      defaults: { username, password, name, lastname, telephone, address, birthdate, gender }
     });
+    console.log('user2:', user2);
+    console.log('NO ERROR!!')
+    console.log(created);
     if (created) {
       const accessToken = jwt.sign({ email }, SECRET_KEY);
       res.status(201);
@@ -23,6 +27,7 @@ exports.create = async (req, res) => {
       res.json('Email is already used');
     }
   } catch (e) {
+    console.log(e);
     res.sendStatus(500)
   }
 }
@@ -30,8 +35,10 @@ exports.create = async (req, res) => {
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
-    const user = await User.findOne({ where: { email } });
-
+    console.log('email:', email);
+    console.log('password:', password);
+    const user = await db.User.findOne({ where: { email } });
+    console.log('User: ', user);
     const validatePass = await bcrypt.compare(password, user.password);
     if (!validatePass) throw new Error();
 
@@ -39,6 +46,7 @@ exports.login = async (req, res) => {
     res.status(200);
     res.json(accessToken);
   } catch (e) {
+    console.log(e);
     res.sendStatus(500);
   }
 }
@@ -57,7 +65,7 @@ exports.getOne = async (req, res) => {
 exports.update = async (req, res) => {
   try {
     const { id } = req.user;   // get the user data from authMiddleware
-    await User.update({ id: id }, { where: req.body });
+    await db.User.update({ id: id }, { where: req.body });
     res.status(200);
   } catch (e) {
     console.error(e);   // eslint-disable-line no-console
