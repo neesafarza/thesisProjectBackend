@@ -41,7 +41,7 @@ module.exports = {
           },
         },
         telephone: {
-          type: Sequelize.INTEGER(2147483646),
+          type: Sequelize.INTEGER(2147483647),
           validate: {
             isInt: true,
           },
@@ -83,9 +83,6 @@ module.exports = {
           },
         },
       },
-      // {
-      //   schema: 'public'                      // default: public, PostgreSQL only.
-      // }
     )
 
     await queryInterface.createTable(
@@ -102,9 +99,6 @@ module.exports = {
           required: true
         }
       },
-      {
-        schema: 'public'                      // default: public, PostgreSQL only.
-      }
     )
 
     await queryInterface.createTable(
@@ -121,9 +115,6 @@ module.exports = {
           unique: true
         }
       },
-      {
-        schema: 'public'                      // default: public, PostgreSQL only.
-      }
     )
 
     await queryInterface.createTable(
@@ -187,9 +178,6 @@ module.exports = {
           required: false
         }
       },
-      {
-        schema: 'public'                      // default: public, PostgreSQL only.
-      }
     )
 
     await queryInterface.createTable(
@@ -219,9 +207,6 @@ module.exports = {
           onDelete: 'cascade'
         }
       },
-      {
-        schema: 'public'                      // default: public, PostgreSQL only.
-      }
     )
 
   },

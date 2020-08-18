@@ -62,11 +62,6 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
-    // created_at: {
-    //   type: DataTypes.DATEONLY,
-    //   required: false,
-    //   default: Date.now()
-    // },
     gender: {
       type: DataTypes.STRING,
       allowNull: false,
