@@ -53,7 +53,15 @@ module.exports = (sequelize, DataTypes) => {
       required: true,
       default: 1
     },
-    size: {
+    height: {
+      type: 'VARCHAR',
+      required: false
+    },
+    depth: {
+      type: 'VARCHAR',
+      required: false
+    },
+    width: {
       type: 'VARCHAR',
       required: false
     }
