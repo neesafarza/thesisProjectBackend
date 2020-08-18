@@ -13,6 +13,8 @@ module.exports = {
         email: "user1@mail.com",
         address: "123, drury lane",
         birthdate: "1996-08-14",
+        createdAt: "1996-08-14",
+        updatedAt: "1996-08-14",
         gender: false
       },
       {
@@ -23,6 +25,8 @@ module.exports = {
         email: "user2@mail.com",
         address: "123, drury lane",
         birthdate: "1996-08-14",
+        createdAt: "1996-08-14",
+        updatedAt: "1996-08-14",
         gender: true
       }
     ]);

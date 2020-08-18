@@ -1,53 +1,77 @@
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define('User', {
+  const User = sequelize.define('user', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
     username: {
-      type: 'VARCHAR',
+      type: DataTypes.STRING,
       unique: true,
-      required: true
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
     },
     password: {
-      type: 'VARCHAR',
-      required: true
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
     },
     name: {
-      type: 'VARCHAR',
-      required: true
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
     },
     lastname: {
-      type: 'VARCHAR',
-      required: true
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
     },
     telephone: {
-      type: DataTypes.INTEGER,
-      required: false
+      type: DataTypes.INTEGER(2147483647),
+      validate: {
+        isInt: true,
+      },
     },
     email: {
-      type: 'VARCHAR',
+      type: DataTypes.STRING,
       unique: true,
-      required: true
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
     },
     address: {
-      type: 'VARCHAR',
-      required: false
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
     },
     birthdate: {
       type: DataTypes.DATEONLY,
-      required: true
-    },
-    created_at: {
-      type: DataTypes.DATEONLY,
       allowNull: false,
-      default: DataTypes.NOW
+      validate: {
+        notEmpty: true,
+      },
     },
+    // created_at: {
+    //   type: DataTypes.DATEONLY,
+    //   required: false,
+    //   default: Date.now()
+    // },
     gender: {
-      type: 'VARCHAR',
-      required: false
+      type: DataTypes.STRING,
+      allowNull: false,
     }
   });
-  return User
+
+  return User;
 }

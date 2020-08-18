@@ -6,57 +6,86 @@ module.exports = {
       'users',
       {
         id: {
-          type: Sequelize.INTEGER,
           primaryKey: true,
-          autoIncrement: true
+          type: Sequelize.INTEGER,
+          autoIncrement: true,
+          allowNull: false
         },
         username: {
-          type: 'VARCHAR',
+          type: Sequelize.STRING,
           unique: true,
-          required: true
+          allowNull: false,
+          validate: {
+            notEmpty: true,
+          },
         },
         password: {
-          type: 'VARCHAR',
-          required: true
+          type: Sequelize.STRING,
+          allowNull: false,
+          validate: {
+            notEmpty: true,
+          },
         },
         name: {
-          type: 'VARCHAR',
-          required: true
+          type: Sequelize.STRING,
+          allowNull: false,
+          validate: {
+            notEmpty: true,
+          },
         },
         lastname: {
-          type: 'VARCHAR',
-          required: true
+          type: Sequelize.STRING,
+          allowNull: false,
+          validate: {
+            notEmpty: true,
+          },
         },
         telephone: {
-          type: Sequelize.INTEGER,
-          required: false
+          type: Sequelize.INTEGER(2147483646),
+          validate: {
+            isInt: true,
+          },
         },
         email: {
-          type: 'VARCHAR',
+          type: Sequelize.STRING,
           unique: true,
-          required: true
+          allowNull: false,
+          validate: {
+            notEmpty: true,
+          },
         },
         address: {
-          type: 'VARCHAR',
-          required: false
+          type: Sequelize.STRING,
+          allowNull: false,
         },
         birthdate: {
           type: Sequelize.DATEONLY,
-          required: true
-        },
-        created_at: {
-          type: Sequelize.DATEONLY,
           allowNull: false,
-          default: Sequelize.NOW
+          validate: {
+            notEmpty: true,
+          },
         },
         gender: {
-          type: 'VARCHAR',
-          required: false
+          type: Sequelize.STRING,
+        },
+        createdAt: {
+          type: Sequelize.DATE,
+          allowNull: false,
+          validate: {
+            notEmpty: true,
+          },
+        },
+        updatedAt: {
+          type: Sequelize.DATE,
+          allowNull: false,
+          validate: {
+            notEmpty: true,
+          },
         },
       },
-      {
-        schema: 'public'                      // default: public, PostgreSQL only.
-      }
+      // {
+      //   schema: 'public'                      // default: public, PostgreSQL only.
+      // }
     )
 
     await queryInterface.createTable(
@@ -110,24 +139,24 @@ module.exports = {
           references: {
             model: 'users',
             key: 'id'
-        },
-        onUpdate: 'cascade',
-        onDelete: 'cascade'
+          },
+          onUpdate: 'cascade',
+          onDelete: 'cascade'
         },
         category_id: {
           type: Sequelize.INTEGER,
           references: {
             model: 'categories',
             key: 'id'
-        },
-        onUpdate: 'cascade',
-        onDelete: 'cascade'
+          },
+          onUpdate: 'cascade',
+          onDelete: 'cascade'
         },
         title: {
           type: 'VARCHAR',
           required: true
         },
-        description:{
+        description: {
           type: 'VARCHAR',
           required: true
         },
@@ -176,18 +205,18 @@ module.exports = {
           references: {
             model: 'products',
             key: 'id'
-        },
-        onUpdate: 'cascade',
-        onDelete: 'cascade'
+          },
+          onUpdate: 'cascade',
+          onDelete: 'cascade'
         },
         user_id: {
           type: Sequelize.INTEGER,
           references: {
             model: 'users',
             key: 'id'
-        },
-        onUpdate: 'cascade',
-        onDelete: 'cascade'
+          },
+          onUpdate: 'cascade',
+          onDelete: 'cascade'
         }
       },
       {
@@ -197,6 +226,6 @@ module.exports = {
 
   },
   down: async (queryInterface, Sequelize) => {
-    queryInterface.dropAllTables()
+    await queryInterface.dropAllTables();
   }
 };
