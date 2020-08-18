@@ -9,7 +9,9 @@
     "build": "tsc",
     "createDB_and_mockData": "sequelize db:create thesis_db && npm run migrate && npm run seed",
     "migrate": "sequelize db:migrate",
-    "seed": "npx sequelize-cli db:seed:all"
+    "migrate-down": "sequelize db:migrate:undo",
+    "seed": "npx sequelize-cli db:seed:all",
+    "seed-down": "npx sequelize-cli db:seed:undo"
   },
   "repository": {
     "type": "git",
