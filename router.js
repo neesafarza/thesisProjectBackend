@@ -11,7 +11,6 @@ const authMiddleware = require('./middlewares/auth');
 router.post('/register', user.create);
 router.post('/login', user.login);
 
-router.get('/home', product.getAll);
 router.get('/products', product.getAll);
 
 router.get('/category/:id/products', product.getAllByCategoryId)
@@ -20,11 +19,10 @@ router.get('/category/:id/products', product.getAllByCategoryId)
 /*** PRIVATE ROUTES ***/
 router.get('/user/:id', authMiddleware, user.getOne);
 router.put('/user/:id', authMiddleware, user.update);
-router.get('/user/products', authMiddleware, product.getAll);
 
 router.post('/product', authMiddleware, product.create);
-router.get('/product/:id', authMiddleware, product.getOne);
 router.put('/product/:id', authMiddleware, product.update);
+router.delete('/product/:id', authMiddleware, product.delete);
 
 
 

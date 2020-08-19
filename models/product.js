@@ -1,4 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
+
   const Product = sequelize.define('products', {
     id: {
       type: DataTypes.INTEGER,
@@ -13,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       onUpdate: 'cascade',
       onDelete: 'cascade'
+
     },
     category_id: {
       type: DataTypes.INTEGER,

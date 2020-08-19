@@ -63,8 +63,8 @@ exports.update = async (req, res) => {
     await db.user.update(req.body, {
       where: { id }
     });
-    console.log('3');
-    res.sendStatus(200);
+    res.status(200);
+    res.send("Your data was updated!");
   } catch (e) {
     console.error(`Coudn't update the personal data for user with id ${req.user.id}`, e);   // eslint-disable-line no-console
     res.sendStatus(500);

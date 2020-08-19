@@ -11,39 +11,28 @@ module.exports = {
           primaryKey: true,
           type: Sequelize.INTEGER,
           autoIncrement: true,
-          allowNull: false
+          allowNull: false,
         },
         username: {
           type: Sequelize.STRING,
           unique: true,
           allowNull: false,
-          validate: {
-            notEmpty: true,
-          },
         },
         password: {
           type: Sequelize.STRING,
           allowNull: false,
-          validate: {
-            notEmpty: true,
-          },
         },
         name: {
           type: Sequelize.STRING,
           allowNull: false,
-          validate: {
-            notEmpty: true,
-          },
         },
         lastname: {
           type: Sequelize.STRING,
           allowNull: false,
-          validate: {
-            notEmpty: true,
-          },
         },
         telephone: {
           type: Sequelize.INTEGER(2147483647),
+          allowNull: true,
           validate: {
             isInt: true,
           },
@@ -53,7 +42,7 @@ module.exports = {
           unique: true,
           allowNull: false,
           validate: {
-            notEmpty: true,
+            isEmail: true,
           },
         },
         address: {
@@ -63,12 +52,10 @@ module.exports = {
         birthdate: {
           type: Sequelize.DATEONLY,
           allowNull: false,
-          validate: {
-            notEmpty: true,
-          },
         },
         gender: {
           type: Sequelize.STRING,
+          allowNull: false,
         },
         createdAt: {
           type: Sequelize.DATEONLY,
@@ -81,7 +68,31 @@ module.exports = {
           default: Date.now()
         },
       },
-    )
+    );
+
+    await queryInterface.createTable(
+      'productsToSell',
+      {
+        id: {
+          primaryKey: true,
+          type: Sequelize.INTEGER,
+          autoIncrement: true,
+          allowNull: false,
+        },
+        user_id: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+        },
+        createdAt: {
+          type: Sequelize.DATE,
+          allowNull: false,
+        },
+        updatedAt: {
+          type: Sequelize.DATE,
+          allowNull: false,
+        },
+      },
+    );
 
     await queryInterface.createTable(
       'categories',
@@ -89,7 +100,8 @@ module.exports = {
         id: {
           type: Sequelize.INTEGER,
           primaryKey: true,
-          autoIncrement: true
+          autoIncrement: true,
+          allowNull: false,
         },
         name: {
           type: Sequelize.STRING,
@@ -115,7 +127,8 @@ module.exports = {
         id: {
           type: Sequelize.INTEGER,
           primaryKey: true,
-          autoIncrement: true
+          autoIncrement: true,
+          allowNull: false,
         },
         name: {
           type: Sequelize.STRING,
@@ -133,7 +146,7 @@ module.exports = {
           default: Date.now()
         },
       },
-    )
+    );
 
     await queryInterface.createTable(
       'products',
@@ -141,12 +154,14 @@ module.exports = {
         id: {
           type: Sequelize.INTEGER,
           primaryKey: true,
-          autoIncrement: true
+          autoIncrement: true,
+          allowNull: false,
         },
         user_id: {
           type: Sequelize.INTEGER,
+          allowNull: false,
           references: {
-            model: 'users',
+            model: 'user',
             key: 'id'
           },
           onUpdate: 'cascade',
@@ -154,8 +169,9 @@ module.exports = {
         },
         category_id: {
           type: Sequelize.INTEGER,
+          allowNull: false,
           references: {
-            model: 'categories',
+            model: 'category',
             key: 'id'
           },
           onUpdate: 'cascade',
@@ -163,7 +179,7 @@ module.exports = {
         },
         title: {
           type: Sequelize.STRING,
-          required: true
+          allowNull: false,
         },
         description: {
           type: Sequelize.STRING,
@@ -181,35 +197,39 @@ module.exports = {
         },
         images: {
           type: Sequelize.STRING,
-          required: true
+          allowNull: false,
         },
         location: {
           type: Sequelize.STRING,
-          required: true
+          allowNull: false,
         },
         price: {
           type: Sequelize.INTEGER,
-          required: true
+          allowNull: false,
         },
         quantity: {
           type: Sequelize.INTEGER,
-          required: true,
-          default: 1
+          allowNull: false,
         },
         height: {
-          type: Sequelize.STRING,
-          required: false
+          type: Sequelize.INTEGER,
+          allowNull: false,
         },
         depth: {
-          type: Sequelize.STRING,
-          required: false
+          type: Sequelize.INTEGER,
+          allowNull: false,
         },
         width: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+        },
+        material: {
           type: Sequelize.STRING,
           required: false
+
         },
       },
-    )
+    );
 
     await queryInterface.createTable(
       'purchases',
@@ -217,10 +237,12 @@ module.exports = {
         id: {
           type: Sequelize.INTEGER,
           primaryKey: true,
-          autoIncrement: true
+          autoIncrement: true,
+          allowNull: false,
         },
         product_id: {
           type: Sequelize.INTEGER,
+          allowNull: false,
           references: {
             model: 'products',
             key: 'id'
@@ -230,6 +252,7 @@ module.exports = {
         },
         user_id: {
           type: Sequelize.INTEGER,
+          allowNull: false,
           references: {
             model: 'users',
             key: 'id'
@@ -248,7 +271,7 @@ module.exports = {
           default: Date.now()
         }
       },
-    )
+    );
 
   },
   down: async (queryInterface, Sequelize) => {
