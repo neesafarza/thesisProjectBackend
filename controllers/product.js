@@ -1,6 +1,14 @@
 'use strict';
 
+
+const models = require('../models');
+
+
+exports.getAll = async (req, res) => {
+  try {
+
 const db = require('../models/index');
+
 
 exports.create = async (req, res) => {
   try {
@@ -74,3 +82,26 @@ exports.delete = async (req, res) => {
     res.sendStatus(500);
   }
 };
+
+exports.getAllByCategoryId = async (req, res) => {
+
+  const categoryId = req.params.id;
+
+  try {
+    if(!categoryId) {
+      res.status(400).send('no id')
+    }
+    await models.products.findAll({
+      where: {
+        category_id: categoryId
+      }
+    }
+    ).then(products => {
+      res.setHeader('content-type', 'application/json');
+      return res.status(200).send(JSON.stringify(products))
+    })
+  } catch (e) {
+    console.error(e)
+    res.status(400).send(JSON.stringify(e))
+  }
+}
