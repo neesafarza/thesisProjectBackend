@@ -26,7 +26,7 @@ GET:          **/products**       (to get public products, uses query) </br>
 
 example: </br>
 to get all the public products of:  </br>
-a category		                **/products?category=livingroom** </br>
+a category		                **/products?category_id=1** </br>
 the user with id 3            **/products?user_id=3** </br>
 
 
