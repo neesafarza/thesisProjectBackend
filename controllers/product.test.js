@@ -30,3 +30,4 @@ describe('postProduct', () => {
     await create(req, res);
     expect(product.create).toHaveBeenCalledTimes(1);
   });
+});
