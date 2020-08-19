@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --watchAll",
+    "test:coverage": "jest --coverage --watchAll=false",
     "start": "tsc && node dist/app.js",
     "build": "tsc",
     "createDB_and_mockData": "sequelize db:create thesis_db && npm run migrate && npm run seed",
@@ -30,11 +31,11 @@
     "@types/jest": "^26.0.10",
     "@types/node": "^14.0.27",
     "cz-conventional-changelog": "^3.2.0",
+    "dotenv": "^8.2.0",
     "jest": "^26.4.0",
     "ts-jest": "^26.2.0",
     "tslint": "^5.12.1",
-    "typescript": "^3.9.7",
-    "dotenv": "^8.2.0"
+    "typescript": "^3.9.7"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
@@ -51,5 +52,17 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "jest": {
+    "coverageDirectory": "<rootDir>/coverage",
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!.eslintrc.js",
+      "!**/coverage/**",
+      "!**/migrations/**",
+      "!**/seeders/**",
+      "!**/node_modules/**",
+      "!**/vendor/**"
+    ]
   }
 }

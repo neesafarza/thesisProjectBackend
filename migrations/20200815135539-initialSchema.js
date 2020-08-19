@@ -64,7 +64,31 @@ module.exports = {
           allowNull: false,
         },
       },
-    )
+    );
+
+    await queryInterface.createTable(
+      'productsToSell',
+      {
+        id: {
+          primaryKey: true,
+          type: Sequelize.INTEGER,
+          autoIncrement: true,
+          allowNull: false,
+        },
+        user_id: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+        },
+        createdAt: {
+          type: Sequelize.DATE,
+          allowNull: false,
+        },
+        updatedAt: {
+          type: Sequelize.DATE,
+          allowNull: false,
+        },
+      },
+    );
 
     await queryInterface.createTable(
       'categories',
@@ -81,7 +105,7 @@ module.exports = {
           allowNull: false,
         }
       },
-    )
+    );
 
     await queryInterface.createTable(
       'tags',
@@ -98,7 +122,7 @@ module.exports = {
           allowNull: false,
         }
       },
-    )
+    );
 
     await queryInterface.createTable(
       'products',
@@ -113,7 +137,7 @@ module.exports = {
           type: Sequelize.INTEGER,
           allowNull: false,
           references: {
-            model: 'users',
+            model: 'user',
             key: 'id'
           },
           onUpdate: 'cascade',
@@ -123,7 +147,7 @@ module.exports = {
           type: Sequelize.INTEGER,
           allowNull: false,
           references: {
-            model: 'categories',
+            model: 'category',
             key: 'id'
           },
           onUpdate: 'cascade',
@@ -154,14 +178,18 @@ module.exports = {
           allowNull: false,
         },
         height: {
-          type: Sequelize.STRING,
+          type: Sequelize.INTEGER,
           allowNull: false,
         },
         depth: {
-          type: Sequelize.STRING,
+          type: Sequelize.INTEGER,
           allowNull: false,
         },
         width: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+        },
+        material: {
           type: Sequelize.STRING,
           allowNull: false,
         },
@@ -174,7 +202,7 @@ module.exports = {
           allowNull: false,
         },
       },
-    )
+    );
 
     await queryInterface.createTable(
       'purchases',
@@ -206,7 +234,7 @@ module.exports = {
           onDelete: 'cascade'
         }
       },
-    )
+    );
 
   },
   down: async (queryInterface, Sequelize) => {

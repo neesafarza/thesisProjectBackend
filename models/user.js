@@ -48,7 +48,7 @@ module.exports = (sequelize, DataTypes) => {
     gender: {
       type: DataTypes.STRING,
       allowNull: false,
-    }
+    },
   });
 
   return User;

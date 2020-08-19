@@ -32,16 +32,16 @@ module.exports = {
 
     await queryInterface.bulkInsert("categories", [
       {
-        name: "Bedroom"
+        name: "bedroom"
       },
       {
-        name: "Living Room"
+        name: "livingroom"
       },
       {
-        name: "Kitchen"
+        name: "kitchen"
       },
       {
-        name: "Bathroom"
+        name: "bathroom"
       }
     ]);
 
@@ -63,6 +63,7 @@ module.exports = {
         location: 'Barcelona',
         price: 350,
         quantity: 1,
+        material: "stainless steel",
         height: 83,
         depth: 52,
         width: 59,
@@ -78,6 +79,7 @@ module.exports = {
         location: 'Barcelona',
         price: 470,
         quantity: 1,
+        material: "stainless steel",
         height: 76,
         depth: 107,
         width: 220,
@@ -93,6 +95,7 @@ module.exports = {
         location: 'Barcelona',
         price: 210,
         quantity: 1,
+        material: "stainless steel",
         height: 45,
         depth: 70,
         width: 110,
@@ -108,6 +111,39 @@ module.exports = {
         location: 'London',
         price: 95,
         quantity: 1,
+        material: "stainless steel",
+        height: 50,
+        depth: 17,
+        width: 40,
+        createdAt: "1996-08-14",
+        updatedAt: "1996-08-14",
+      },
+      {
+        user_id: user[0][1].id,
+        category_id: category[0][3].id,
+        title: 'Cool Bathroom Mirror',
+        description: `Black almost square bathroom mirror with shelf`,
+        images: 'https://cdn.goodshomedesign.com/wp-content/uploads/2017/10/Amazing-Wood-Furniture-13-640x478.jpg',
+        location: 'Barcelona',
+        price: 95,
+        quantity: 1,
+        material: "stainless steel",
+        height: 50,
+        depth: 17,
+        width: 40,
+        createdAt: "1996-08-14",
+        updatedAt: "1996-08-14",
+      },
+      {
+        user_id: user[0][1].id,
+        category_id: category[0][3].id,
+        title: "To Sara's cat",
+        description: `Black almost square bathroom mirror with shelf`,
+        images: 'https://www.dhoumm.co/cdn-k1/am/amazing-furniture-ideas-for-cats-nova_room-interior-and-decoration.jpg',
+        location: 'Barcelona',
+        price: 95,
+        quantity: 1,
+        material: "stainless steel",
         height: 50,
         depth: 17,
         width: 40,
