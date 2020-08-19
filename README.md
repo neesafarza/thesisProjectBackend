@@ -19,24 +19,24 @@ If you want to remove the database just run on the terminal:
 
 
 ## Endpoints
-### Public endpoints:
-POST:        **/register**         (to create a new user)
-POST:        **/login**              (to login)
-GET:          **/products**       (to get public products, uses query)
+###### Public endpoints:
+POST:        **/register**         (to create a new user) </br>
+POST:        **/login**              (to login) </br>
+GET:          **/products**       (to get public products, uses query) </br>
 
-example:
-to get all the public products of:
-a category		                **/products?category=livingroom**
-the user with id 3            **/products?user_id=3**
+example: </br>
+to get all the public products of:  </br>
+a category		                **/products?category=livingroom** </br>
+the user with id 3            **/products?user_id=3** </br>
 
 
 
-### Private endpoints:
-GET:              **/user/:id**              (to get user data)
-PUT:              **/user/:id**              (to update user data)
-POST:            **/product**             (to create a product)
-PUT:              **/product/:id**       (to update a product)
-DELETE:        **/product/:id**       (to delete a product)
+###### Private endpoints:
+GET:              **/user/:id**              (to get user data) </br>
+PUT:              **/user/:id**              (to update user data) </br>
+POST:            **/product**             (to create a product) </br>
+PUT:              **/product/:id**       (to update a product) </br>
+DELETE:        **/product/:id**       (to delete a product) </br>
 
 
 
