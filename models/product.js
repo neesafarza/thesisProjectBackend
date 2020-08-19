@@ -1,73 +1,64 @@
 module.exports = (sequelize, DataTypes) => {
-
-  const Product = sequelize.define('products', {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
-    },
+  const Products = sequelize.define('product', {
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'users',
-        key: 'id'
+        model: 'user',
+        key: 'id',
       },
       onUpdate: 'cascade',
-      onDelete: 'cascade'
-
+      onDelete: 'cascade',
     },
     category_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'categories',
-        key: 'id'
+        model: 'category',
+        key: 'id',
       },
       onUpdate: 'cascade',
-      onDelete: 'cascade'
+      onDelete: 'cascade',
     },
     title: {
-      type: 'VARCHAR',
-      required: true
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     description: {
-      type: 'VARCHAR',
-      required: true
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     images: {
-      type: 'VARCHAR',
-      required: true
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     location: {
-      type: 'VARCHAR',
-      required: true
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     price: {
       type: DataTypes.INTEGER,
-      required: true
+      allowNull: false,
     },
     quantity: {
       type: DataTypes.INTEGER,
-      required: true,
-      default: 1
+      allowNull: false,
+    },
+    material: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     height: {
-      type: 'VARCHAR',
-      required: false
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     depth: {
-      type: 'VARCHAR',
-      required: false
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     width: {
-      type: 'VARCHAR',
-      required: false
-    }
-  }, {
-    sequelize,
-    modelName: 'product',
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   });
-  return Product;
+
+  return Products;
 }
-
-
-

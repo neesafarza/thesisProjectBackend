@@ -1,7 +1,5 @@
 'use strict';
 
-const { sequelize } = require("../models");
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable(
@@ -58,14 +56,12 @@ module.exports = {
           allowNull: false,
         },
         createdAt: {
-          type: Sequelize.DATEONLY,
-          required: true,
-          default: Date.now()
+          type: Sequelize.DATE,
+          allowNull: false,
         },
         updatedAt: {
-          type: Sequelize.DATEONLY,
-          required: false,
-          default: Date.now()
+          type: Sequelize.DATE,
+          allowNull: false,
         },
       },
     );
@@ -106,20 +102,10 @@ module.exports = {
         name: {
           type: Sequelize.STRING,
           unique: true,
-          required: true
-        },
-        createdAt: {
-          type: Sequelize.DATEONLY,
-          required: true,
-          default: Date.now()
-        },
-        updatedAt: {
-          type: Sequelize.DATEONLY,
-          required: false,
-          default: Date.now()
+          allowNull: false,
+        }
       },
-    }
-  )
+    );
 
     await queryInterface.createTable(
       'tags',
@@ -132,19 +118,9 @@ module.exports = {
         },
         name: {
           type: Sequelize.STRING,
-          required: true,
-          unique: true
-        },
-        createdAt: {
-          type: Sequelize.DATEONLY,
-          required: true,
-          default: Date.now()
-        },
-        updatedAt: {
-          type: Sequelize.DATEONLY,
-          required: false,
-          default: Date.now()
-        },
+          unique: true,
+          allowNull: false,
+        }
       },
     );
 
@@ -183,17 +159,7 @@ module.exports = {
         },
         description: {
           type: Sequelize.STRING,
-          required: true
-        },
-        createdAt: {
-          type: Sequelize.DATEONLY,
-          required: true,
-          default: Date.now()
-        },
-        updatedAt: {
-          type: Sequelize.DATEONLY,
-          required: false,
-          default: Date.now()
+          allowNull: false,
         },
         images: {
           type: Sequelize.STRING,
@@ -225,8 +191,15 @@ module.exports = {
         },
         material: {
           type: Sequelize.STRING,
-          required: false
-
+          allowNull: false,
+        },
+        createdAt: {
+          type: Sequelize.DATE,
+          allowNull: false,
+        },
+        updatedAt: {
+          type: Sequelize.DATE,
+          allowNull: false,
         },
       },
     );
@@ -259,16 +232,6 @@ module.exports = {
           },
           onUpdate: 'cascade',
           onDelete: 'cascade'
-        },
-        createdAt: {
-          type: Sequelize.DATEONLY,
-          required: true,
-          default: Date.now()
-        },
-        updatedAt: {
-          type: Sequelize.DATEONLY,
-          required: false,
-          default: Date.now()
         }
       },
     );
