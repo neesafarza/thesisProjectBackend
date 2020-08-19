@@ -137,7 +137,7 @@ module.exports = {
           type: Sequelize.INTEGER,
           allowNull: false,
           references: {
-            model: 'user',
+            model: 'users',
             key: 'id'
           },
           onUpdate: 'cascade',
@@ -147,7 +147,7 @@ module.exports = {
           type: Sequelize.INTEGER,
           allowNull: false,
           references: {
-            model: 'category',
+            model: 'categories',
             key: 'id'
           },
           onUpdate: 'cascade',
