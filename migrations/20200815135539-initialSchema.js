@@ -1,5 +1,7 @@
 'use strict';
 
+const { sequelize } = require("../models");
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable(
@@ -69,18 +71,14 @@ module.exports = {
           type: Sequelize.STRING,
         },
         createdAt: {
-          type: Sequelize.DATE,
-          allowNull: false,
-          validate: {
-            notEmpty: true,
-          },
+          type: Sequelize.DATEONLY,
+          required: true,
+          default: Date.now()
         },
         updatedAt: {
-          type: Sequelize.DATE,
-          allowNull: false,
-          validate: {
-            notEmpty: true,
-          },
+          type: Sequelize.DATEONLY,
+          required: false,
+          default: Date.now()
         },
       },
     )
@@ -97,9 +95,19 @@ module.exports = {
           type: Sequelize.STRING,
           unique: true,
           required: true
-        }
+        },
+        createdAt: {
+          type: Sequelize.DATEONLY,
+          required: true,
+          default: Date.now()
+        },
+        updatedAt: {
+          type: Sequelize.DATEONLY,
+          required: false,
+          default: Date.now()
       },
-    )
+    }
+  )
 
     await queryInterface.createTable(
       'tags',
@@ -113,7 +121,17 @@ module.exports = {
           type: Sequelize.STRING,
           required: true,
           unique: true
-        }
+        },
+        createdAt: {
+          type: Sequelize.DATEONLY,
+          required: true,
+          default: Date.now()
+        },
+        updatedAt: {
+          type: Sequelize.DATEONLY,
+          required: false,
+          default: Date.now()
+        },
       },
     )
 
@@ -151,9 +169,14 @@ module.exports = {
           type: Sequelize.STRING,
           required: true
         },
-        created_at: {
+        createdAt: {
           type: Sequelize.DATEONLY,
           required: true,
+          default: Date.now()
+        },
+        updatedAt: {
+          type: Sequelize.DATEONLY,
+          required: false,
           default: Date.now()
         },
         images: {
@@ -184,7 +207,7 @@ module.exports = {
         width: {
           type: Sequelize.STRING,
           required: false
-        }
+        },
       },
     )
 
@@ -213,6 +236,16 @@ module.exports = {
           },
           onUpdate: 'cascade',
           onDelete: 'cascade'
+        },
+        createdAt: {
+          type: Sequelize.DATEONLY,
+          required: true,
+          default: Date.now()
+        },
+        updatedAt: {
+          type: Sequelize.DATEONLY,
+          required: false,
+          default: Date.now()
         }
       },
     )

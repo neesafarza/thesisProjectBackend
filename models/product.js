@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Products = sequelize.define('Products', {
+  const Product = sequelize.define('products', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -30,11 +30,6 @@ module.exports = (sequelize, DataTypes) => {
     description: {
       type: 'VARCHAR',
       required: true
-    },
-    created_at: {
-      type: DataTypes.DATEONLY,
-      required: true,
-      default: Date.now()
     },
     images: {
       type: 'VARCHAR',
@@ -67,9 +62,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    modelName: 'Products',
+    modelName: 'product',
   });
-  return Products;
+  return Product;
 }
 
 
