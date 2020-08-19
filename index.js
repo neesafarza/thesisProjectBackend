@@ -1,15 +1,21 @@
-'use strict';
+"use strict";
 
-require('dotenv').config();
-const express = require('express');
+require("dotenv").config();
+const express = require("express");
 const app = express();
-const router = require('./router');
-const { sequelize } = require('./models/index');
+const cors = require("cors");
+const router = require("./router");
+const { sequelize } = require("./models/index");
 const PORT = process.env.SERVER_PORT;
 const URL = process.env.SERVER_URL;
 
-app.use(express.json());
+const corsConfig = {
+  origin: "http://localhost:3000",
+  credentials: true,
+};
 
+app.use(cors(corsConfig));
+app.use(express.json());
 app.use(router);
 
 (async () => {
@@ -19,6 +25,6 @@ app.use(router);
       console.log(`Server running at ${URL}:${PORT} 🚀`); // eslint-disable-line no-console
     });
   } catch (e) {
-    console.error('Error connecting to the db 😢', e);   // eslint-disable-line no-console
+    console.error("Error connecting to the db 😢", e); // eslint-disable-line no-console
   }
 })();
