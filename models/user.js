@@ -23,11 +23,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     telephone: {
-      type: DataTypes.INTEGER(2147483647),
+      type: DataTypes.STRING,
       allowNull: true,
-      validate: {
-        isInt: true,
-      },
     },
     email: {
       type: DataTypes.STRING,

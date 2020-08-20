@@ -29,11 +29,8 @@ module.exports = {
           allowNull: false,
         },
         telephone: {
-          type: Sequelize.INTEGER(2147483647),
+          type: Sequelize.STRING,
           allowNull: true,
-          validate: {
-            isInt: true,
-          },
         },
         email: {
           type: Sequelize.STRING,
