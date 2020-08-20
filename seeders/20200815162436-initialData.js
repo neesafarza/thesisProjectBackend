@@ -9,24 +9,36 @@ module.exports = {
         password: 1234,
         name: "aneesa",
         lastname: "zafri",
-        email: "user1@mail.com",
+        email: "user1@gmail.com",
         address: "123, drury lane",
         birthdate: "1996-08-14",
         createdAt: "1996-08-14",
         updatedAt: "1996-08-14",
-        gender: false
+        gender: "female"
       },
       {
         username: "juan10",
         password: 1234,
         name: "juan",
         lastname: "Sanchez",
-        email: "user2@mail.com",
+        email: "user2@gmail.com",
         address: "123, drury lane",
         birthdate: "1996-08-14",
         createdAt: "1996-08-14",
         updatedAt: "1996-08-14",
-        gender: true
+        gender: "male"
+      },
+      {
+        username: "Admin",
+        password: "$2b$10$J8bMTW0T.DpJfPv1jYy0uuINzAJK.6QFtQIZr0RMR91filXL.Po0e",
+        name: "admin",
+        lastname: "admin",
+        email: "admin@gmail.com",
+        address: "123, drury lane",
+        birthdate: "1996-08-14",
+        createdAt: "1996-08-14",
+        updatedAt: "1996-08-14",
+        gender: "prefer not to say"
       }
     ]);
 
