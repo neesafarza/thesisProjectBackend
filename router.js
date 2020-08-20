@@ -4,6 +4,7 @@ const { Router } = require('express');
 const router = new Router();
 const user = require('./controllers/user');
 const product = require('./controllers/product');
+const category = require('./controllers/category');
 const authMiddleware = require('./middlewares/auth');
 
 
@@ -12,6 +13,7 @@ router.post('/register', user.create);
 router.post('/login', user.login);
 
 router.get('/products', product.getAll);
+router.get('/categories', category.getCategories)
 
 
 /*** PRIVATE ROUTES ***/
