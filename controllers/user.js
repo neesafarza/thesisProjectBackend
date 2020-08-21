@@ -10,14 +10,21 @@ exports.create = async (req, res) => {
     const { email, password } = req.body;
     const hash = await bcrypt.hash(password, 10);
     req.body.password = hash;
-    const [_, created] = await db.user.findOrCreate({ // TODO: handle case if the email is not used but the username is
+    const [createdUser, wasCreated] = await db.user.findOrCreate({ // TODO: handle case if the email is not used but the username is
       where: { email },
       defaults: req.body
     });
-    if (created) {
+    if (wasCreated) {
       const accessToken = jwt.sign({ email }, SECRET_KEY);
       res.status(201);
-      res.json(accessToken);
+      res.json({
+        accessToken,
+        user: {
+          id: createdUser.id,
+          name: createdUser.name,
+          lastname: createdUser.lastname,
+        }
+      });
     } else {
       res.status(409);
       res.json('Email is already used');
@@ -36,7 +43,14 @@ exports.login = async (req, res) => {
     if (!validatePass) throw new Error();
     const accessToken = jwt.sign({ email: user.email }, SECRET_KEY);
     res.status(200);
-    res.json(accessToken);
+    res.json({
+      accessToken,
+      user: {
+        id: user.id,
+        name: user.name,
+        lastname: user.lastname,
+      }
+    });
   } catch (e) {
     res.status(401);
     res.send('User or password incorrect.');
