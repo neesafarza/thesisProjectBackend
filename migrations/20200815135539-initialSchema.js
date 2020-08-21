@@ -2,6 +2,8 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
+
+    
     await queryInterface.createTable(
       'users',
       {
@@ -64,30 +66,6 @@ module.exports = {
     );
 
     await queryInterface.createTable(
-      'productsToSell',
-      {
-        id: {
-          primaryKey: true,
-          type: Sequelize.INTEGER,
-          autoIncrement: true,
-          allowNull: false,
-        },
-        user_id: {
-          type: Sequelize.INTEGER,
-          allowNull: false,
-        },
-        createdAt: {
-          type: Sequelize.DATE,
-          allowNull: false,
-        },
-        updatedAt: {
-          type: Sequelize.DATE,
-          allowNull: false,
-        },
-      },
-    );
-
-    await queryInterface.createTable(
       'categories',
       {
         id: {
@@ -125,7 +103,15 @@ module.exports = {
           type: Sequelize.STRING,
           unique: true,
           allowNull: false,
-        }
+        },
+        createdAt: {
+          type: Sequelize.DATE,
+          allowNull: true,
+        },
+        updatedAt: {
+          type: Sequelize.DATE,
+          allowNull: true,
+        },
       },
     );
 
@@ -237,9 +223,66 @@ module.exports = {
           },
           onUpdate: 'cascade',
           onDelete: 'cascade'
-        }
+        },
+        createdAt: {
+          type: Sequelize.DATE,
+          allowNull: true,
+        },
+        updatedAt: {
+          type: Sequelize.DATE,
+          allowNull: true,
+        },
       },
     );
+
+    await queryInterface.createTable(
+      'reviews',
+      {
+        id: {
+          type: Sequelize.INTEGER,
+          primaryKey: true,
+          autoIncrement: true,
+          allowNull: false,
+        },
+        user_id: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          references: {
+            model: 'users',
+            key: 'id'
+          },
+          onUpdate: 'cascade',
+          onDelete: 'cascade'
+        },
+        author_id: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          references: {
+            model: 'users',
+            key: 'id'
+          },
+          onUpdate: 'cascade',
+          onDelete: 'cascade'
+        },
+        content: {
+          type: Sequelize.STRING,
+          allowNull: false,
+        },
+        rating: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+        },
+        createdAt: {
+          type: Sequelize.DATE,
+          allowNull: true,
+        },
+        updatedAt: {
+          type: Sequelize.DATE,
+          allowNull: true,
+        },
+      },
+    );
+
 
   },
   down: async (queryInterface, Sequelize) => {
