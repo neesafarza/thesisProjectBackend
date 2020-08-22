@@ -1,5 +1,4 @@
 'use strict';
-
 const db = require('../models/index');
 
 exports.getCategories = async (req, res) => {
