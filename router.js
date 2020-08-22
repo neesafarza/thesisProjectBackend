@@ -8,6 +8,10 @@ const category = require('./controllers/category');
 const authMiddleware = require('./middlewares/auth');
 const review = require('./controllers/reviews')
 
+const multer  = require('multer')
+const storage = multer.memoryStorage()
+const upload = multer({ storage: storage })
+
 
 /*** PUBLIC ROUTES ***/
 router.post('/register', user.create);
@@ -23,7 +27,7 @@ router.get('/reviews', review.getAllReviews);
 router.get('/user/:id', authMiddleware, user.getOne);
 router.put('/user/:id', authMiddleware, user.update);
 
-router.post('/product', authMiddleware, product.create);
+router.post('/product', upload.single("images"), authMiddleware, product.create);
 router.put('/product/:id', authMiddleware, product.update);
 router.delete('/product/:id', authMiddleware, product.delete);
 
