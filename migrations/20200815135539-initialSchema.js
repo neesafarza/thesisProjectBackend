@@ -210,6 +210,33 @@ module.exports = {
     );
 
     await queryInterface.createTable(
+      'basketProducts',
+      {
+        id: {
+          type: Sequelize.INTEGER,
+          primaryKey: true,
+          autoIncrement: true
+        },
+        user_id: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+        },
+        product_id: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+        },
+        createdAt: {
+          type: Sequelize.DATE,
+          allowNull: false,
+        },
+        updatedAt: {
+          type: Sequelize.DATE,
+          allowNull: false,
+        },
+      },
+    );
+
+    await queryInterface.createTable(
       'purchases',
       {
         id: {
@@ -218,26 +245,66 @@ module.exports = {
           autoIncrement: true,
           allowNull: false,
         },
-        product_id: {
+        buyer_id: {
           type: Sequelize.INTEGER,
           allowNull: false,
-          references: {
-            model: 'products',
-            key: 'id'
-          },
-          onUpdate: 'cascade',
-          onDelete: 'cascade'
         },
-        user_id: {
+        seller_id: {
           type: Sequelize.INTEGER,
           allowNull: false,
-          references: {
-            model: 'users',
-            key: 'id'
-          },
-          onUpdate: 'cascade',
-          onDelete: 'cascade'
-        }
+        },
+        category_id: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+        },
+        title: {
+          type: Sequelize.STRING,
+          allowNull: false,
+        },
+        description: {
+          type: Sequelize.STRING,
+          allowNull: false,
+        },
+        images: {
+          type: Sequelize.STRING,
+          allowNull: false,
+        },
+        location: {
+          type: Sequelize.STRING,
+          allowNull: false,
+        },
+        price: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+        },
+        purchased_quantity: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+        },
+        height: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+        },
+        depth: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+        },
+        width: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+        },
+        material: {
+          type: Sequelize.STRING,
+          allowNull: false,
+        },
+        createdAt: {
+          type: Sequelize.DATE,
+          allowNull: false,
+        },
+        updatedAt: {
+          type: Sequelize.DATE,
+          allowNull: false,
+        },
       },
     );
 
