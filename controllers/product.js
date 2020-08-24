@@ -1,17 +1,18 @@
 'use strict';
 
 const db = require('../models/index');
+const createProduct = require('../services/productService');
+
 
 exports.create = async (req, res) => {
   try {
-    const product = await db.product.create({
-      ...req.body,
-      user_id: req.user.id
-    });
+    const createdProduct = await createProduct(req);
     res.status(201);
-    res.json(product);
+    res.json(createdProduct);
   } catch (e) {
     console.error(`Couldn't create a product: `, e);   // eslint-disable-line no-console
+    res.status(400)
+    res.send(JSON.stringify(e))
   }
 };
 

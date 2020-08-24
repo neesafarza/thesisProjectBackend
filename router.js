@@ -9,21 +9,28 @@ const basketProduct = require('./controllers/basketProduct');
 const payment = require('./controllers/payment');
 const purchase = require('./controllers/purchase');
 const authMiddleware = require('./middlewares/auth');
+const review = require('./controllers/reviews')
+
+const multer = require('multer')
+const storage = multer.memoryStorage()
+const upload = multer({ storage: storage })
 
 
 /*** PUBLIC ROUTES ***/
 router.post('/register', user.create);
 router.post('/login', user.login);
+router.post('/review', review.create);
 
 router.get('/products', product.getAll);
-router.get('/categories', category.getCategories);
+router.get('/categories', category.getCategories)
+router.get('/reviews', review.getAllReviews);
 
 
 /*** PRIVATE ROUTES ***/
 router.get('/user/:id', authMiddleware, user.getOne);
 router.put('/user/:id', authMiddleware, user.update);
 
-router.post('/product', authMiddleware, product.create);
+router.post('/product', upload.single("images"), authMiddleware, product.create);
 router.put('/product/:id', authMiddleware, product.update);
 router.delete('/product/:id', authMiddleware, product.delete);
 

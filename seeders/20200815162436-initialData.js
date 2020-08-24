@@ -44,16 +44,16 @@ module.exports = {
 
     await queryInterface.bulkInsert("categories", [
       {
-        name: "bedroom"
+        name: "Bedroom"
       },
       {
-        name: "livingroom"
+        name: "Living Room"
       },
       {
-        name: "kitchen"
+        name: "Kitchen"
       },
       {
-        name: "bathroom"
+        name: "Bathroom"
       }
     ]);
 
