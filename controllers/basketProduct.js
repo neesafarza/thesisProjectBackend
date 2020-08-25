@@ -30,7 +30,7 @@ exports.getAll = async (req, res) => {
     for (let i = 0; i < basketProducts.length; i++) {
       const product = await db.product.findOne({
         where: {
-          id: basketProducts[i].id,
+          id: basketProducts[i].product_id,
         }
       });
       products.push(product);

@@ -7,7 +7,7 @@ const product = require('./controllers/product');
 const category = require('./controllers/category');
 const basketProduct = require('./controllers/basketProduct');
 const payment = require('./controllers/payment');
-const purchaseHistory = require('./controllers/purchaseHistory');
+const purchase = require('./controllers/purchase');
 const authMiddleware = require('./middlewares/auth');
 const review = require('./controllers/reviews')
 
@@ -19,6 +19,7 @@ const upload = multer({ storage: storage })
 /*** PUBLIC ROUTES ***/
 router.post('/register', user.create);
 router.post('/login', user.login);
+router.get('/user_public_data/:id', user.getPublicData);
 router.post('/review', review.create);
 
 router.get('/products', product.getAll);
@@ -38,8 +39,8 @@ router.get('/basket_products', authMiddleware, basketProduct.getAll);
 router.post('/basket_products/:id', authMiddleware, basketProduct.create);
 router.delete('/basket_products/:id', authMiddleware, basketProduct.delete);
 
-router.post('/purchase_history', authMiddleware, purchaseHistory.create);
-router.get('/purchase_history', authMiddleware, purchaseHistory.getAll);
+router.post('/purchase_history', authMiddleware, purchase.create);
+router.get('/purchase_history', authMiddleware, purchase.getAll);
 
 router.post('/api/payment_intents', payment.intent);  // TODO: add authMiddleware
 

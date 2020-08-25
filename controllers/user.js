@@ -84,3 +84,27 @@ exports.update = async (req, res) => {
     res.sendStatus(500);
   }
 };
+
+exports.getPublicData = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await db.user.findOne({
+      where: {
+        id,
+      }
+    });
+    const userPublicData = {
+      id: user.id,
+      name: user.name,
+      username: user.username,
+      description: user.description,
+      address: user.address,
+
+    }
+    res.status(200);
+    res.json(userPublicData);
+  } catch (e) {
+    console.error("Couldn't send user public data:", e);   // eslint-disable-line no-console
+    res.sendStatus(500);
+  }
+};

@@ -55,7 +55,7 @@ module.exports = {
           allowNull: false,
         },
         description: {
-          type: Sequelize.STRING,
+          type: Sequelize.STRING(1000),
           allowNull: true,
         },
         createdAt: {
@@ -153,7 +153,7 @@ module.exports = {
           allowNull: false,
         },
         description: {
-          type: Sequelize.STRING,
+          type: Sequelize.STRING(1000),
           allowNull: false,
         },
         images: {
@@ -252,7 +252,7 @@ module.exports = {
           allowNull: false,
         },
         description: {
-          type: Sequelize.STRING,
+          type: Sequelize.STRING(1000),
           allowNull: false,
         },
         images: {
