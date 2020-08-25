@@ -54,6 +54,10 @@ module.exports = {
           type: Sequelize.STRING,
           allowNull: false,
         },
+        description: {
+          type: Sequelize.STRING,
+          allowNull: true,
+        },
         createdAt: {
           type: Sequelize.DATE,
           allowNull: false,
@@ -330,6 +334,46 @@ module.exports = {
         rating: {
           type: Sequelize.INTEGER,
           allowNull: false,
+        },
+        createdAt: {
+          type: Sequelize.DATE,
+          allowNull: true,
+        },
+        updatedAt: {
+          type: Sequelize.DATE,
+          allowNull: true,
+        },
+      },
+    );
+
+    await queryInterface.createTable(
+      'views',
+      {
+        id: {
+          type: Sequelize.INTEGER,
+          primaryKey: true,
+          autoIncrement: true,
+          allowNull: false,
+        },
+        user_id: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          references: {
+            model: 'users',
+            key: 'id'
+          },
+          onUpdate: 'cascade',
+          onDelete: 'cascade'
+        },
+        product_id: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          references: {
+            model: 'products',
+            key: 'id'
+          },
+          onUpdate: 'cascade',
+          onDelete: 'cascade'
         },
         createdAt: {
           type: Sequelize.DATE,
