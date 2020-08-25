@@ -35,7 +35,7 @@ exports.getAll = async (req, res) => {
           id: basketProducts[i].product_id,
         }
       });
-      product.quantity = basketProducts[i].basket_quantity;
+      product.dataValues.basket_quantity = basketProducts[i].basket_quantity;
       products.push(product);
     }
     res.status(200);
