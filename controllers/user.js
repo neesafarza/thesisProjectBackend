@@ -99,7 +99,6 @@ exports.getPublicData = async (req, res) => {
       username: user.username,
       description: user.description,
       address: user.address,
-
     }
     res.status(200);
     res.json(userPublicData);

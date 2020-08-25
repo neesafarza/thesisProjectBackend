@@ -37,6 +37,7 @@ router.delete('/product/:id', authMiddleware, product.delete);
 
 router.get('/basket_products', authMiddleware, basketProduct.getAll);
 router.post('/basket_products/:id', authMiddleware, basketProduct.create);
+router.put('/basket_products/:id', authMiddleware, basketProduct.updateQuantity);
 router.delete('/basket_products/:id', authMiddleware, basketProduct.delete);
 
 router.post('/purchase_history', authMiddleware, purchase.create);
