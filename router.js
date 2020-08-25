@@ -10,6 +10,7 @@ const payment = require('./controllers/payment');
 const purchase = require('./controllers/purchase');
 const authMiddleware = require('./middlewares/auth');
 const review = require('./controllers/reviews')
+const view = require('./controllers/view')
 
 const multer = require('multer')
 const storage = multer.memoryStorage()
@@ -41,6 +42,9 @@ router.delete('/basket_products/:id', authMiddleware, basketProduct.delete);
 
 router.post('/purchase_history', authMiddleware, purchase.create);
 router.get('/purchase_history', authMiddleware, purchase.getAll);
+
+router.post('/product/view', authMiddleware, view.create);
+router.get('/products/view', authMiddleware, view.getViewedProducts);
 
 router.post('/api/payment_intents', payment.intent);  // TODO: add authMiddleware
 
