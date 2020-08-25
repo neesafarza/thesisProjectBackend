@@ -3,6 +3,7 @@
 const db = require('../models/index');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const SECRET_KEY = process.env.SECRET_KEY;
 
 exports.create = async (req, res) => {
   try {
@@ -11,10 +12,7 @@ exports.create = async (req, res) => {
     req.body.password = hash;
     const [createdUser, wasCreated] = await db.user.findOrCreate({ // TODO: handle case if the email is not used but the username is
       where: { email },
-      defaults: {
-        ...req.body,
-        customer,
-      },
+      defaults: req.body,
     });
     if (wasCreated) {
       const accessToken = jwt.sign({ email }, SECRET_KEY);
