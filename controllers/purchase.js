@@ -11,6 +11,7 @@ exports.create = async (req, res) => {
       ...req.body,
       buyer_id: user_id,
       seller_id: purchasedProduct.user_id,
+      purchased_quantity: purchasedProduct.quantity,
     });
     res.status(201);
     res.send('Product added on purchases history');
@@ -23,7 +24,7 @@ exports.create = async (req, res) => {
 exports.getAll = async (req, res) => {
   const user_id = req.user.id;
   try {
-    const purchases = await db.purchase.findAndCountAll({
+    const purchases = await db.purchase.findAll({
       where: {
         buyer_id: user_id,
       }
