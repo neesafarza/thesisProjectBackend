@@ -14,7 +14,8 @@ module.exports = {
         birthdate: "1996-08-14",
         createdAt: "1996-08-14",
         updatedAt: "1996-08-14",
-        gender: "prefer not to say"
+        gender: "prefer not to say",
+        description: "Welcome to Admin's Furnitures. We’ve spent years combining tried and tested joinery techniques with the modern mastery of technology and tools giving our final products a truly untouchable finish. Take a look at our items and feel free to ask us for any more information. We hope to provide you with one of our items very soon!"
       },
       {
         username: "LeoD",
@@ -26,7 +27,8 @@ module.exports = {
         birthdate: "1996-08-14",
         createdAt: "2020-08-24 14:21:17.767+01",
         updatedAt: "2020-08-24 14:21:17.767+01",
-        gender: "Male"
+        gender: "Male",
+        description: "Welcome to Leo DiCaprio's Boutique Co. You can find many things here even unique doors of the titanic. We’ve spent years combining tried and tested joinery techniques with the modern mastery of technology and tools giving our final products a truly untouchable finish. Take a look at our items and feel free to ask us for any more information."
       },
       {
         username: "ladygaga",
@@ -38,7 +40,8 @@ module.exports = {
         birthdate: "1994-01-01",
         createdAt: "2020-08-24 14:28:34.309+01",
         updatedAt: "2020-08-24 14:28:34.309+011",
-        gender: "Female"
+        gender: "Female",
+        description: "Welcome to Lady Gaga's Vintage Boutique Co. We create one off, unique pieces of furniture with Lady Gaga's style. I make them myself with the latest technologies to make it more fancy!"
       },
       {
         username: "janedoe",
@@ -50,9 +53,10 @@ module.exports = {
         birthdate: "2019-01-02",
         createdAt: "2020-08-24 14:33:31.116+01",
         updatedAt: "2020-08-24 14:33:31.116+01",
-        gender: "Female"
+        gender: "Female",
+        description: "Welcome to Jane Doe's Vintage Boutique Co. We create one off, unique pieces of furniture using the highest grade of materials. We’ve spent years combining tried and tested joinery techniques with the modern mastery of technology and tools giving our final products a truly untouchable finish. Take a look at our items and feel free to ask us for any more information. We hope to provide you with one of our items very soon!"
       },
-      
+
     ]);
 
     await queryInterface.bulkInsert("categories", [
@@ -96,7 +100,7 @@ module.exports = {
         createdAt: "2020-08-15",
         updatedAt: "2020-08-15",
       },
-    
+
       {
         user_id: user[0][2].id,
         category_id: category[0][2].id,
@@ -114,7 +118,7 @@ module.exports = {
         createdAt: "2020-08-17",
         updatedAt: "2020-08-17",
       },
-    
+
       {
         user_id: user[0][1].id,
         category_id: category[0][2].id,
@@ -132,7 +136,7 @@ module.exports = {
         createdAt: "2020-08-11",
         updatedAt: "2020-08-11",
       },
-    
+
       {
         user_id: user[0][2].id,
         category_id: category[0][2].id,
@@ -150,7 +154,7 @@ module.exports = {
         createdAt: "2020-07-11",
         updatedAt: "2020-07-11",
       },
-    
+
       {
         user_id: user[0][3].id,
         category_id: category[0][2].id,
@@ -256,7 +260,7 @@ module.exports = {
         createdAt: "2020-08-15",
         updatedAt: "2020-08-15",
       },
-    
+
       {
         user_id: user[0][3].id,
         category_id: category[0][3].id,
@@ -274,7 +278,7 @@ module.exports = {
         createdAt: "2020-08-17",
         updatedAt: "2020-08-17",
       },
-    
+
       {
         user_id: user[0][1].id,
         category_id: category[0][3].id,
@@ -292,7 +296,7 @@ module.exports = {
         createdAt: "2020-08-10",
         updatedAt: "2020-08-10",
       },
-    
+
       {
         user_id: user[0][2].id,
         category_id: category[0][3].id,
@@ -310,7 +314,7 @@ module.exports = {
         createdAt: "2020-08-11",
         updatedAt: "2020-08-11",
       },
-    
+
       {
         user_id: user[0][3].id,
         category_id: category[0][3].id,
@@ -328,7 +332,7 @@ module.exports = {
         createdAt: "2020-07-11",
         updatedAt: "2020-07-11",
       },
-    
+
       {
         user_id: user[0][1].id,
         category_id: category[0][3].id,
@@ -346,7 +350,7 @@ module.exports = {
         createdAt: "2020-07-19",
         updatedAt: "2020-07-19",
       },
-    
+
       {
         user_id: user[0][2].id,
         category_id: category[0][3].id,
@@ -364,7 +368,7 @@ module.exports = {
         createdAt: "2020-07-19",
         updatedAt: "2020-07-19",
       },
-    
+
       {
         user_id: user[0][3].id,
         category_id: category[0][3].id,
@@ -382,7 +386,7 @@ module.exports = {
         createdAt: "2020-07-19",
         updatedAt: "2020-07-19",
       },
-    
+
       {
         user_id: user[0][1].id,
         category_id: category[0][3].id,
@@ -418,7 +422,7 @@ module.exports = {
         createdAt: "2020-06-20",
         updatedAt: "2020-06-20",
       },
-    
+
       {
         user_id: user[0][3].id,
         category_id: category[0][0].id,
@@ -436,7 +440,7 @@ module.exports = {
         createdAt: "2020-08-24",
         updatedAt: "2020-08-24",
       },
-    
+
       {
         user_id: user[0][1].id,
         category_id: category[0][0].id,
@@ -454,7 +458,7 @@ module.exports = {
         createdAt: "2020-07-23",
         updatedAt: "2020-08-23",
       },
-    
+
       {
         user_id: user[0][2].id,
         category_id: category[0][0].id,
@@ -472,7 +476,7 @@ module.exports = {
         createdAt: "2020-07-10",
         updatedAt: "2020-07-10",
       },
-    
+
       {
         user_id: user[0][3].id,
         category_id: category[0][0].id,
@@ -490,7 +494,7 @@ module.exports = {
         createdAt: "2020-08-21",
         updatedAt: "2020-08-21",
       },
-    
+
       {
         user_id: user[0][1].id,
         category_id: category[0][0].id,
@@ -508,7 +512,7 @@ module.exports = {
         createdAt: "2020-08-20",
         updatedAt: "2020-08-20",
       },
-    
+
       {
         user_id: user[0][2].id,
         category_id: category[0][0].id,
@@ -526,7 +530,7 @@ module.exports = {
         createdAt: "2020-07-01",
         updatedAt: "2020-07-20",
       },
-    
+
       {
         user_id: user[0][3].id,
         category_id: category[0][0].id,
@@ -544,7 +548,7 @@ module.exports = {
         createdAt: "2020-08-10",
         updatedAt: "2020-08-10",
       },
-    
+
       {
         user_id: user[0][1].id,
         category_id: category[0][0].id,
@@ -594,7 +598,7 @@ module.exports = {
         content: "Quite slow delivery but product looked exactly like the picture, 10/10 would recommend buying from this seller",
         rating: 4
       },
-      
+
     ]);
 
   },
