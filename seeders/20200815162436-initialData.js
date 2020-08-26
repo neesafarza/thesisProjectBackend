@@ -82,6 +82,10 @@ module.exports = {
       `SELECT id from categories;`
     )
 
+    const product = await queryInterface.sequelize.query(
+      `SELECT id FROM products;` 
+    )
+
     await queryInterface.bulkInsert("products", [
       {
         user_id: user[0][1].id,
@@ -600,7 +604,6 @@ module.exports = {
       },
 
     ]);
-
   },
 
   down: async (queryInterface) => {
@@ -608,7 +611,7 @@ module.exports = {
     queryInterface.bulkDelete("categories", null, {});
     queryInterface.bulkDelete("products", null, {});
     queryInterface.bulkDelete("reviews", null, {});
-
+    queryInterface.bulkDelete("views", null, {});
   },
 
 };
