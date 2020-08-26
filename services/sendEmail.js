@@ -2,6 +2,7 @@
 
 require("dotenv").config();
 const nodemailer = require("nodemailer");
+const path = require("path");
 
 const GMAIL_HOST = process.env.GMAIL_HOST;
 const GMAIL_PORT = process.env.GMAIL_PORT;
@@ -9,14 +10,15 @@ const GMAIL_USER = process.env.GMAIL_USER;
 const GMAIL_PASSWORD = process.env.GMAIL_PASSWORD;
 
 const { buyerEmailContent } = require('../email_views/buyerEmailContent');
+const { dirname } = require("path");
 
-function sendEmailToBuyer (email, product) {
+
+const sendEmailToBuyer = async (email, product) => {
   const buyer = {
-    subject: '✔️ You bought a product on Furnis',
-    content: buyerEmailContent(product),
+    subject: '✔️ You bought a product on Furniss',
+    content: buyerEmailContent(product)
   }
-
-  sendEmail(email, buyer.subject, buyer.content);
+  await sendEmail(email, buyer.subject, buyer.content);
 }
 
 async function sendEmail (email, subject, content) {
@@ -49,5 +51,5 @@ async function sendEmail (email, subject, content) {
 
 module.exports = {
   sendEmailToBuyer,
-  sendEmail
+  sendEmail,
 };
