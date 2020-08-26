@@ -31,6 +31,7 @@ exports.getViewedProducts = async (req, res) => {
     });
     const products = [];
     for (let i =0; i < viewedProducts.length; i++) {
+      console.log(viewedProducts[i].product_id)
       const product = await db.product.findOne({
         where: {
           id: viewedProducts[i].product_id,
