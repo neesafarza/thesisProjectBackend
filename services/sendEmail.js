@@ -8,12 +8,7 @@ const GMAIL_PORT = process.env.GMAIL_PORT;
 const GMAIL_USER = process.env.GMAIL_USER;
 const GMAIL_PASSWORD = process.env.GMAIL_PASSWORD;
 
-console.log('SI')
-
 const { buyerEmailContent } = require('../email_views/buyerEmailContent');
-
-console.log('*******************************************************')
-console.log('buyerEmailContent:', buyerEmailContent)
 
 function sendEmailToBuyer (email, product) {
   const buyer = {
