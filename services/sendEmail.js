@@ -9,10 +9,8 @@ const GMAIL_PORT = process.env.GMAIL_PORT;
 const GMAIL_USER = process.env.GMAIL_USER;
 const GMAIL_PASSWORD = process.env.GMAIL_PASSWORD;
 
-
 const { buyerEmailContent } = require('../email_views/buyerEmailContent');
 const { dirname } = require("path");
-
 
 
 const sendEmailToBuyer = async (email, product) => {

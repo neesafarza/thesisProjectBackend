@@ -31,18 +31,15 @@ exports.getAll = async (req, res) => {
 
 exports.update = async (req, res) => {
   try {
+    const user_id = req.user.id;
     const { id } = req.params;
-    const product = await db.product.findOne({
-      where: { id }
+    const updatedProduct = await db.product.update(req.body, {
+      where: {
+        id,
+        user_id,
+      }
     });
-    const isTheOwner = product.user_id === req.user.id;
-    if (isTheOwner) {
-      const updatedProduct = await db.product.update({
-        ...req.body,
-        user_id: product.user_id
-      }, {
-        where: { id }
-      });
+    if (updatedProduct) {
       res.status(200);
       res.json(updatedProduct);
     } else {
