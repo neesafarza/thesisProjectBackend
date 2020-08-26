@@ -36,6 +36,7 @@ exports.getAll = async (req, res) => {
         }
       });
       product.dataValues.basket_quantity = basketProducts[i].basket_quantity;
+      product.dataValues.price = product.price * basketProducts[i].basket_quantity;
       products.push(product);
     }
     res.status(200);

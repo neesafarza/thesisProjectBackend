@@ -8,6 +8,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    purchase_date: {
+      type: DataTypes.DATE,
+      defaultValue: Date.now(),
+      allowNull: false,
+    },
     category_id: {
       type: DataTypes.INTEGER,
       allowNull: false,

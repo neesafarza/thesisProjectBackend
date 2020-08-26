@@ -24,7 +24,7 @@ router.get('/user_public_data/:id', user.getPublicData);
 router.post('/review', review.create);
 
 router.get('/products', product.getAll);
-router.get('/categories', category.getCategories)
+router.get('/categories', category.getCategories);
 router.get('/reviews', review.getAllReviews);
 
 
@@ -42,7 +42,8 @@ router.put('/basket_products/:id', authMiddleware, basketProduct.updateQuantity)
 router.delete('/basket_products/:id', authMiddleware, basketProduct.delete);
 
 router.post('/purchase_history', authMiddleware, purchase.create);
-router.get('/purchase_history', authMiddleware, purchase.getAll);
+router.get('/purchase_history', authMiddleware, purchase.getAllPurchases);
+router.get('/sales_history', authMiddleware, purchase.getAllSales);
 
 router.post('/product/view', authMiddleware, view.create);
 router.get('/products/view', authMiddleware, view.getViewedProducts);

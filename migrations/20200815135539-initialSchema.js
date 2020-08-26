@@ -247,6 +247,10 @@ module.exports = {
           type: Sequelize.INTEGER,
           allowNull: false,
         },
+        purchase_date: {
+          type: Sequelize.DATE,
+          allowNull: false,
+        },
         category_id: {
           type: Sequelize.INTEGER,
           allowNull: false,
