@@ -2,28 +2,26 @@
 
 const db = require('../models/index');
 const { sendEmailToBuyer } = require('../services/sendEmail');
-const productController = require('./product');
 
 exports.create = async (req, res) => {
   try {
     const user_id = req.user.id;
     const product = req.body;
-    delete req.body.id;
+    const boughtProductId = product.id;
+    delete product.id;
     const purchasedProduct = await db.purchase.create({
-      ...req.body,
+      ...product,
       buyer_id: user_id,
       seller_id: product.user_id,
       purchased_quantity: product.basket_quantity,
     });
     sendEmailToBuyer(req.user.email, purchasedProduct);
-    // const updatedProduct = await productController.update({
-    //   quantity: product.quantity - purchasedProduct.purchased_quantity,
-    // }, {
-    //   where: {
-    //     id: product.id,
-    //   }
-    // });
-    // console.log('updatedProduct', updatedProduct);
+    await db.product.decrement('quantity', {
+      by: purchasedProduct.purchased_quantity,
+      where: {
+        id: boughtProductId,
+      }
+    });
     res.status(201);
     res.send('Product added on purchases history');
   } catch (e) {
