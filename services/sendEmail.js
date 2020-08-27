@@ -10,13 +10,21 @@ const GMAIL_USER = process.env.GMAIL_USER;
 const GMAIL_PASSWORD = process.env.GMAIL_PASSWORD;
 
 const { buyerEmailContent } = require('../email_views/buyerEmailContent');
+const { sellerEmailContent } = require('../email_views/sellerEmailContent');
 const { dirname } = require("path");
-
 
 const sendEmailToBuyer = async (email, product) => {
   const buyer = {
     subject: '✔️ You bought a product on Furniss',
     content: buyerEmailContent(product)
+  }
+  await sendEmail(email, buyer.subject, buyer.content);
+}
+
+const sendEmailToSeller = async (email, product) => {
+  const buyer = {
+    subject: '🎉 You sold a product on Furniss',
+    content: sellerEmailContent(product)
   }
   await sendEmail(email, buyer.subject, buyer.content);
 }
@@ -50,6 +58,7 @@ async function sendEmail (email, subject, content) {
 
 
 module.exports = {
+  sendEmailToSeller,
   sendEmailToBuyer,
   sendEmail,
 };

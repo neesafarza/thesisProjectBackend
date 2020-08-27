@@ -2,6 +2,7 @@
 
 const db = require('../models/index');
 const { sendEmailToBuyer } = require('../services/sendEmail');
+const { sendEmailToSeller } = require('../services/sendEmail');
 
 exports.create = async (req, res) => {
   try {
@@ -15,7 +16,9 @@ exports.create = async (req, res) => {
       seller_id: product.user_id,
       purchased_quantity: product.basket_quantity,
     });
+    const seller = await getSellerData(product.user_id);
     sendEmailToBuyer(req.user.email, purchasedProduct);
+    sendEmailToSeller(seller.dataValues.email, purchasedProduct);
     await db.product.decrement('quantity', {
       by: purchasedProduct.purchased_quantity,
       where: {
@@ -61,3 +64,12 @@ exports.getAllSales = async (req, res) => {
     res.sendStatus(500);
   }
 };
+
+async function getSellerData (id) {
+  const seller = await db.user.findOne({
+    where: {
+      id,
+    }
+  });
+  return seller;
+}
