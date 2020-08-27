@@ -36,12 +36,12 @@ exports.sellerEmailContent = (product) => {
             >
             <hr>
             <h3 style="font-weight: bold"> What next?</h3>
-            <h5> We’ve let the seller know and they’ll ship your item as soon as possible. 
-              It’s an uncertain time for our community right now due to COVID-19 so it may take longer than usual to receive your item. 
-              If you have any questions or concerns we encourage you to message them directly.</h5>
+            <h5> Check to make sure the payment has cleared. Always send your item tracked so you're fully protected in the event something goes wrong, 
+            keep the proof of trackend postage. 
+            </h5>
 
               <hr>
-            <p>You can see your purchase history <a href="${CLIENT_URL}/purchase_history">here</a></p>
+            <p>You can see your sold products history <a href="${CLIENT_URL}/purchase_history">here</a></p>
           </div>
         </div>
       </div>
