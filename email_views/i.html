@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      
+    </head>
+    <body>
+      <div class="email" style="width: 100%; display: flex; justify-content: center" >
+        <div class="mail-body" style="max-width: 600px; margin: 0 auto">
+          <div class="text" style="padding: 0 20px;">
+          <?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+ "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="211.000000pt" height="74.000000pt" viewBox="0 0 211.000000 74.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,74.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M300 465 c0 -83 4 -135 10 -135 6 0 10 28 10 65 l0 64 58 4 57 3 -57
+2 -58 2 0 60 0 59 68 4 67 3 -77 2 -78 2 0 -135z"/>
+<path d="M530 487 c0 -107 1 -115 24 -136 35 -33 94 -38 129 -11 l27 21 -2
+122 -2 122 -3 -116 c-3 -99 -6 -119 -22 -133 -27 -25 -78 -23 -104 3 -19 19
+-22 34 -25 131 -2 61 -8 110 -13 110 -5 0 -9 -51 -9 -113z"/>
+<path d="M790 459 c0 -108 3 -140 13 -137 7 3 13 29 15 71 4 89 23 90 83 5 46
+-67 58 -80 71 -72 4 3 -13 33 -38 67 -31 42 -41 63 -32 65 27 9 58 46 58 72 0
+46 -37 70 -108 70 l-62 0 0 -141z m124 115 c18 -18 21 -56 6 -85 -8 -14 -21
+-19 -55 -19 l-45 0 0 60 0 60 39 0 c23 0 46 -7 55 -16z"/>
+<path d="M1062 463 l2 -138 6 124 5 124 63 -111 c98 -170 92 -170 90 -2 l-2
+145 -5 -110 -6 -110 -64 108 c-35 59 -69 107 -77 107 -11 0 -14 -26 -12 -137z"/>
+<path d="M1310 460 c0 -87 4 -140 10 -140 6 0 10 53 10 140 0 87 -4 140 -10
+140 -6 0 -10 -53 -10 -140z"/>
+<path d="M1432 580 c-40 -37 -24 -88 36 -119 54 -28 76 -55 68 -86 -9 -36 -46
+-51 -86 -35 -16 7 -30 16 -30 21 0 5 -6 9 -12 9 -28 -1 45 -50 73 -50 36 0 89
+47 89 80 0 22 -44 70 -64 70 -7 0 -27 13 -46 29 -34 29 -35 30 -20 58 17 30
+63 44 83 24 6 -6 16 -11 22 -11 5 0 1 7 -9 15 -28 21 -78 19 -104 -5z"/>
+<path d="M1655 575 c-14 -13 -25 -31 -25 -41 0 -19 54 -73 96 -95 40 -21 48
+-51 22 -84 -24 -30 -43 -31 -85 -5 -37 22 -46 10 -11 -14 55 -38 138 -3 138
+59 0 36 -11 48 -79 85 -52 28 -64 59 -35 91 19 22 63 25 84 7 12 -11 12 -10 1
+5 -20 26 -77 22 -106 -8z"/>
+</g>
+</svg>
+
+            <h3 style="font-weight: bold;">Thanks for your order!</h3>
+            <h4>Here's your order confirmation</h4>
+            <hr>
+            <ul>
+              <li>Product: <b>${product.title}</b></li>
+              <li>Price: <b>${product.price} €</b></li>
+              <li>Quantity: <b>${product.purchased_quantity}</b></li>
+              <li>Material: ${product.material}</li>
+              <li>Height: ${product.height} cm</li>
+              <li>Width: ${product.width} cm</li>
+              <li>Depth: ${product.depth} cm</li>
+            </ul>
+            <img 
+              src="${product.images}"
+              style="width:50%;height:50%px;"
+              class="center"
+              alt="See the product image here: ${product.images}"
+            >
+            <hr>
+            <h3 style="font-weight: bold"> What next?</h3>
+            <h5> We’ve let the seller know and they’ll ship your item as soon as possible. 
+              It’s an uncertain time for our community right now due to COVID-19 so it may take longer than usual to receive your item. 
+              If you have any questions or concerns we encourage you to message them directly.</h5>
+
+              <hr>
+            <p>You can see your purchase history <a href="${CLIENT_URL}/purchase_history">here</a></p>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
