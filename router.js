@@ -21,13 +21,15 @@ const upload = multer({ storage: storage })
 router.post('/register', user.create);
 router.post('/login', user.login);
 router.get('/user_public_data/:id', user.getPublicData);
-router.post('/review', review.create);
 
 router.get('/products', product.getAll);
+
 router.get('/categories', category.getCategories);
-router.get('/reviews', review.getAllReviews);
 
 router.post('/api/payment_intents', payment.intent);
+
+router.post('/review', review.create);
+router.get('/reviews', review.getAllReviews);
 
 
 /*** PRIVATE ROUTES ***/
