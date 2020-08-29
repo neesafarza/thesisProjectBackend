@@ -2,11 +2,14 @@
 
 This is the backend repo of the thesis project, you'll find the frontend on https://github.com/sara-gg/thesis-project-client
 
-## Technologies
-This project has been created using NodeJS, Postgres, Sequelize and Express.
+## Tech stack
+This project has been created using:
+* NodeJS
+* Postgres
+* Sequelize
+* Express
 
-
-## Setup
+## Getting started
 Make sure you have installed NodeJS and Postgres.
 To start creating the de database and populate it with mock data run the next commands on your terminal:
 
@@ -87,5 +90,12 @@ PUT:         <b>/sales_history</b>         (to get all the sold products of the 
 GET :        <b>/product/view</b>          (to get all the user's views) </br>
 POST:        <b>/product/viewy</b>         (to create a new view to a product) </br>
 </pre>
+
+## Contributors
+* <a href="https://github.com/amantoniazzi">Amina Antoniazzi</a>
+* <a href="https://github.com/neesafarza">Aneesa Zafri</a>
+* <a href="https://github.com/sara-gg">Sara Gomez Samain</a>
+* <a href="https://github.com/juansp92">Juan Ignacio Sánchez Plastic</a>
+
 
 Enjoy! 🐣
