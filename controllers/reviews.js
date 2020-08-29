@@ -10,7 +10,7 @@ exports.create = async (req, res) => {
     res.status(201);
     res.json(review)
   } catch (error) {
-    console.error(error)
+    console.error(`Couldn't create a review: `, error)
   }
 };
 
@@ -21,6 +21,6 @@ exports.getAllReviews = async (req, res) => {
     res.json(reviews);
   } catch (error) {
     res.status(400);
-    console.error(error);
+    console.error(`Couldn't get the reviews:`, error);
   }
 }

@@ -10,7 +10,7 @@ exports.create = async (req, res) => {
     const { email, password } = req.body;
     const hash = await bcrypt.hash(password, 10);
     req.body.password = hash;
-    const [createdUser, wasCreated] = await db.user.findOrCreate({ // TODO: handle case if the email is not used but the username is
+    const [createdUser, wasCreated] = await db.user.findOrCreate({
       where: { email },
       defaults: req.body,
     });
@@ -30,7 +30,7 @@ exports.create = async (req, res) => {
       res.json('Email is already used');
     }
   } catch (e) {
-    console.log("User couln't create a new account: ", e);   // eslint-disable-line no-console
+    console.error("User couln't create a new account: ", e);   // eslint-disable-line no-console
     res.sendStatus(500);
   }
 };

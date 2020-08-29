@@ -1,13 +1,14 @@
 {
-  "name": "thesisProjectBackend",
+  "name": "thesis-project-backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest --watchAll",
     "test:coverage": "jest --coverage --watchAll=false",
-    "start": "tsc && node dist/app.js",
+    "run_tsc_and_node": "tsc && node dist/app.js",
     "build": "tsc",
+    "start": "nodemon",
     "createDB_and_mockData": "sequelize db:create thesis_db && npm run migrate && npm run seed",
     "removeDB": "sequelize db:drop thesis_db",
     "migrate": "sequelize db:migrate",

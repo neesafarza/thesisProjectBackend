@@ -2,8 +2,6 @@ require("dotenv").config();
 
 const CLIENT_URL = process.env.CLIENT_URL;
 
-
-
 exports.sellerEmailContent = (product) => {
   return `
   <!DOCTYPE html>

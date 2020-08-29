@@ -8,9 +8,9 @@ const category = require('./controllers/category');
 const basketProduct = require('./controllers/basketProduct');
 const payment = require('./controllers/payment');
 const purchase = require('./controllers/purchase');
+const review = require('./controllers/reviews');
+const view = require('./controllers/view');
 const authMiddleware = require('./middlewares/auth');
-const review = require('./controllers/reviews')
-const view = require('./controllers/view')
 
 const multer = require('multer')
 const storage = multer.memoryStorage()
@@ -26,6 +26,8 @@ router.post('/review', review.create);
 router.get('/products', product.getAll);
 router.get('/categories', category.getCategories);
 router.get('/reviews', review.getAllReviews);
+
+router.post('/api/payment_intents', payment.intent);
 
 
 /*** PRIVATE ROUTES ***/
@@ -47,8 +49,6 @@ router.get('/sales_history', authMiddleware, purchase.getAllSales);
 
 router.post('/product/view', authMiddleware, view.create);
 router.get('/products/view', authMiddleware, view.getViewedProducts);
-
-router.post('/api/payment_intents', payment.intent);  // TODO: add authMiddleware
 
 
 module.exports = router;

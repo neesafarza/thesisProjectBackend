@@ -26,7 +26,7 @@ async function sendEmail () {
 
     await transporter.sendMail({
       from: `"Fred Foo 👻" <${GMAIL_USER}>`,
-      to: "juansp92@hotmail.com",
+      to: "furniss.test@hotmail.com",
       subject: "Hello ✔",
       text: "Hello world?",
       html: "<b>Hello world?</b>",

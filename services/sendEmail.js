@@ -11,7 +11,6 @@ const GMAIL_PASSWORD = process.env.GMAIL_PASSWORD;
 
 const { buyerEmailContent } = require('../email_views/buyerEmailContent');
 const { sellerEmailContent } = require('../email_views/sellerEmailContent');
-const { dirname } = require("path");
 
 const sendEmailToBuyer = async (email, product) => {
   const buyer = {
@@ -54,8 +53,6 @@ async function sendEmail (email, subject, content) {
     console.error(`Couldn't send the email to ${email}: `, e);
   }
 }
-
-
 
 module.exports = {
   sendEmailToSeller,
