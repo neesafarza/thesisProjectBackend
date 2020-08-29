@@ -7,6 +7,7 @@ This project has been created using NodeJS, Postgres, Sequelize and Express.
 
 
 ## Setup
+Make sure you have installed NodeJS and Postgres.
 To start creating the de database and populate it with mock data run the next commands on your terminal:
 
 * <b>npm i</b>
