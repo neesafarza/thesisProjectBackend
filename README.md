@@ -1,11 +1,12 @@
 # Furniss - Backend
 
-Furniss is a web application that allows their users to sell and buy up-cycled furniture. This is the backend repo of the thesis project, you'll find the frontend repository [here.](https://github.com/sara-gg/thesis-project-client)
+Furniss is a web application that allows their users to sell and buy up-cycled furniture.
+Find the frontend repository [here.](https://github.com/sara-gg/thesis-project-client)
 
 ## Dependencies
 
 - [NodeJs](https://nodejs.org/en/) (v10 or above)
-- [Postgresql](https://www.postgresql.org/)
+- [PostgreSQL](https://www.postgresql.org/)
 - [Stripe](https://stripe.com/en-gb) account
 - [Cloudinary](https://cloudinary.com/) account
 
@@ -13,8 +14,8 @@ Furniss is a web application that allows their users to sell and buy up-cycled f
 
 This project has been created using:
 
-- NodeJS
-- Postgresql
+- [NodeJs](https://nodejs.org/en/)
+- [PostgreSQL](https://www.postgresql.org/)
 - [Sequelize](https://sequelize.org/) (for migrations)
 - [Express](https://expressjs.com/) (for server endpoints)
 
@@ -159,7 +160,7 @@ POST:        /product/view         (to create a new view to a product)
 
 - [Amina Antoniazzi](https://github.com/amantoniazzi)
 - [Aneesa Zafri](https://github.com/neesafarza)
-- [Sara Gomez Samain](https://github.com/sara-gg)
-- [Juan Ignacio Sánchez Plastic](https://github.com/juansp92)
+- [Sara Gomez Samain](https://github.com/sarasamain/Furniss-FrontEnd)
+- [Juan Ignacio Sánchez Plastic](https://github.com/juan-ignacio-sanchez-plastic)
 
 Enjoy! 🐣
