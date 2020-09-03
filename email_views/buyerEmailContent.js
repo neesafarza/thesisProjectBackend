@@ -1,6 +1,8 @@
 require("dotenv").config();
 
 const CLIENT_URL = process.env.CLIENT_URL;
+const SERVER_URL = process.env.SERVER_URL;
+const SERVER_PORT = process.env.SERVER_PORT;
 
 exports.buyerEmailContent = (product) => {
   return `
@@ -13,7 +15,7 @@ exports.buyerEmailContent = (product) => {
       <div class="email" style="width: 100%; display: flex; justify-content: center" >
         <div class="mail-body" style="max-width: 600px; margin: 0 auto">
           <div class="text" style="padding: 0 20px;">
-          <img src="http://localhost:3001/logo.png" style="width:100%;height:50%px"/>
+          <img src=${SERVER_URL}:${SERVER_PORT}/logo.png style="width:100%;height:50%px"/>
             <h3 style="font-weight: bold;">Thanks for your order!</h3>
             <h4>Here's your order confirmation</h4>
             <hr>

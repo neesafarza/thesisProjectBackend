@@ -8,9 +8,10 @@ const router = require("./router");
 const { sequelize } = require("./models/index");
 const PORT = process.env.SERVER_PORT;
 const URL = process.env.SERVER_URL;
+const CLIENT_URL = process.env.CLIENT_URL;
 
 const corsConfig = {
-  origin: "http://localhost:3000",
+  origin: CLIENT_URL,
   credentials: true,
 };
 app.use(express.static('public'))
