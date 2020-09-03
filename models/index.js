@@ -9,11 +9,13 @@ const basename = path.basename(__filename);
 const DBNAME = process.env.DB_TEST_DBNAME;
 const USER = process.env.DB_TEST_USER;
 const PASSWORD = process.env.DB_TEST_PASSWORD;
+const HOST = process.env.DB_TEST_HOST;
 
 const db = {};
 
 const sequelize = new Sequelize(DBNAME, USER, PASSWORD, {
-  dialect: 'postgres'
+  dialect: 'postgres',
+  host: HOST,
 });
 
 fs
